@@ -21,4 +21,4 @@ categories:
     - title: 'Spring'
       children:
           - title: 'netty-socket.io'
-            url: /categories/socket/
+            url: /categories/netty-socket.io/
