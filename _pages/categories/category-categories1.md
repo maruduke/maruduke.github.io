@@ -1,5 +1,5 @@
 ---
-title: 'Categories1'
+title: 'Spring'
 layout: category
 permalink: /categories/Spring/
 author_profile: true
