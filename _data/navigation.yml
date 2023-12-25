@@ -19,7 +19,7 @@ main:
 # 2022.02.15 sidebar update : simple ver.
 categories:
     - title: 'Spring'
-      url: /categories/categories1/
+      url: /categories/Spring/
     - title: 'Coding Test'
       url: /categories/categories2/
     - title: 'Categories3'
