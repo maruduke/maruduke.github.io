@@ -20,5 +20,5 @@ main:
 categories:
     - title: 'Spring'
       children:
-          - title: 'netty-socket.io'
-            url: /categories/netty-socket.io/
+          - title: 'spring-project'
+            url: /categories/spring-project/
