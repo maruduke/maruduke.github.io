@@ -1,9 +1,9 @@
 ---
-title: 'Spring'
+title: 'netty-socket.io'
 layout: category
-permalink: /categories/Spring/
+permalink: /categories/netty-socket.io/
 author_profile: true
-taxonomy: Spring
+taxonomy: netty-socket.io
 sidebar:
     nav: 'categories'
 ---
