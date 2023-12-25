@@ -3,7 +3,7 @@ title: 'Spring'
 layout: category
 permalink: /categories/Spring/
 author_profile: true
-taxonomy: Categories1
+taxonomy: Spring
 sidebar:
     nav: 'categories'
 ---
