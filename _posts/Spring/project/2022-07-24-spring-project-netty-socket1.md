@@ -1,6 +1,6 @@
 ---
 title: 'netty-socket.io 채팅 방 구현(1)'
-excerpt: '본문의 주요 내용을 여기에 입력하세요'
+excerpt: 'netty-socket.io 기초'
 
 categories:
     - spring-project
