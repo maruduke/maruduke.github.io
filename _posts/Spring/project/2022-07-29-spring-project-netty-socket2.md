@@ -16,23 +16,20 @@ date: 2023-12-29
 last_modified_at: 2023-12-29
 ---
 
-## Room 참가
+## 소개
 
-기존의 SocketModule의 Socket 연결 이벤트 수정
+해당 파트에서는 참여자가 채팅 룸에 입장하여 같은 룸에 있는 참여자끼리 메시지를 소통할 수 있는 형태를 구현하고자 한다.
+
+## 1. Message 클래스 선언
+
+## 2. Room 참가
+
+기존의 SocketModule의 Socket 연결 이벤트 수정하여 클라이언트가 입장한 url의 파싱한다.
+파싱한 데이터는 room의 이름이며 해당 이름을 사용하여 채팅 룸에 입장하도록 한다.
 
 /Config/socketModule.java
 
 ```java
-    public SocketModule(SocketIOServer server, SocketServcie socketServcie) {
-        this.server = server;
-        this.socketServcie = socketServcie;
-
-        server.addConnectListener(onConnected());
-        server.addDisconnectListener(onDisconnected());
-
-        // Message.class를 선언하여 클라이언트에서 받을 데이터 형태를 정의한다.
-        server.addEventListener("send_message", Message.class, onChatReceived());
-    }
 
     private ConnectListener onConnected() {
         return (client) -> {
@@ -44,11 +41,12 @@ last_modified_at: 2023-12-29
     }
 ```
 
-## Room 내의 참가자들에게 데이터 발송 서비스 생성
+## 3. Room 내의 참가자들에게 데이터 발송 서비스 생성
+
+다음은 메시지 발송 서비스이다.
+클라이언트가 속한 룸의 모든 참가자들의 정보를 받아와 자신을 제외한 모든 룸 참가자에게 메시지를 발송하는 함수이다.
 
 Service/SocketService.java
-
-클라이언트가 속한 룸의 모든 참가자들의 정보를 받아와 자신을 제외한 모든 참가자에게 메시지를 발송하는 함수이다.
 
 ```java
 @Service
@@ -67,14 +65,22 @@ public class SocketServcie {
 }
 ```
 
-## Socket이벤트를 통하여 데이터 발송 서비스 실행
+## 4. Socket이벤트를 통하여 데이터 발송 서비스 이벤트 설정
 
 /Config/socketModule.java
 
 앞에서 만든 메시지 발송 함수를 클라이언트의 메시지 이벤트가 발생할 경우 실행하도록 socketNodule에 함수를 정의한다.
 
 ```java
+    public SocketModule(SocketIOServer server, SocketServcie socketServcie) {
+        this.server = server;
+        this.socketServcie = socketServcie;
 
+        // ...
+
+        // Message.class를 선언하여 클라이언트에서 받을 데이터 형태를 정의한다.
+        server.addEventListener("send_message", Message.class, onChatReceived());
+    }
 // ... 생략
 
     private DataListener<Message> onChatReceived() {
