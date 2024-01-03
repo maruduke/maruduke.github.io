@@ -67,9 +67,9 @@ public class SocketServcie {
 
 ## 4. Socket이벤트를 통하여 데이터 발송 서비스 이벤트 설정
 
-/Config/socketModule.java
-
 앞에서 만든 메시지 발송 함수를 클라이언트의 메시지 이벤트가 발생할 경우 실행하도록 socketNodule에 함수를 정의한다.
+
+/Config/socketModule.java
 
 ```java
     public SocketModule(SocketIOServer server, SocketServcie socketServcie) {
