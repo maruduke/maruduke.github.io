@@ -85,8 +85,8 @@ public class ServerCommandLine implements CommandLineRunner {
 
 ## 4. Socket 연결,연결 끊김 시 이벤트 설정
 
-/Config/SocketModule.java
 Socket 연결, 끊김 이벤트를 추가하여 서버의 연결 상태를 확인하는 데 활용한다.
+/Config/SocketModule.java
 
 ```java
 @Component
@@ -140,6 +140,8 @@ public class SocketModule {
         // ...생략
 
         // 특정 메시지(send_message)를 수신 시 실행되는 메서드를 설정
+        // 1. 이벤트 이름 2. 받을 데이터를 파싱할 클래스
+        // 3.받은 데이터를 처리하는 함수
         server.addEventListener("send_message", String.class, onChatReceived());
     }
 
