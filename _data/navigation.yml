@@ -24,3 +24,5 @@ categories:
             url: /categories/spring-project/
           - title: 'WebSocket'
             url: /categories/WebSocket/
+
+    - title: 'Kafka'
