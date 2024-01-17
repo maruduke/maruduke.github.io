@@ -56,4 +56,4 @@ services:
 $ docker-compose -f docker-compose.yml up -d
 ```
 
-<img src="../../assets/images/Kafka/1-1.png">
+<img src="/assets/images/Kafka/1-1.png">
