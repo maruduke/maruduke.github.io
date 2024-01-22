@@ -63,20 +63,29 @@ $ docker-compose -f docker-compose.yml up -d
 
 ## 3. 카프카 컨테이너 설정
 
-1. 카프카 디렉토리 이동
+### 카프카 디렉토리 이동
 
 ```
 $ docker exec -it kafka /bin/sh
 $ cd /opt/kafka_2.13-2.8.1/bin
 ```
 
-2. topic 설정
+### Topic 설정
 
 ```
 $ kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic quickstart
 ```
 
-3. producer 설정
+-   create
+    -   topic 생성
+-   replication-factor 1
+    -   복제 계수 설정
+-   partitions
+    -   Topic내 파티션 개수 지정
+-   topic
+    -   토픽명
+
+### producer 실행
 
 ```
 $ kafka-console-producer.sh --topic quickstart --bootstrap-server localhost:9092
@@ -86,13 +95,16 @@ $ kafka-console-producer.sh --topic quickstart --bootstrap-server localhost:9092
 해당 명령어 이후 입력된 정보는 Topic에 전송됨  
 <img src="/assets/images/Kafka/1-3.png">
 
-4. 전송된 데이터 확인
+### 전송된 데이터 확인
 
-새로운 터미널을 열고 위의 1번 과정을 다시 진행
+새로운 터미널을 열고 위의 카프카 디렉토리 이동 과정을 다시 진행
 
 ```
 $ kafka-console-consumer.sh --topic quickstart --from-beginning --bootstrap-server localhost:9092
 ```
+
+-   bootstrap-server service:port
+    -   bootstrap-server는 kafak 브로커 서비스를 나타낸다. 이때 서비스:포트 로 지정하여 접근할 수 있다
 
 다음 명령어 입력시 전송된 메시지 확인 가능하다.  
 <img src="/assets/images/Kafka/1-4.png">
