@@ -21,11 +21,11 @@ categories:
     - title: 'Spring'
       children:
           - title: 'spring-project'
-            url: /Spring/spring-project/
+            url: /categories/spring-project/
           - title: 'WebSocket'
-            url: /Spring/WebSocket/
+            url: /categories/WebSocket/
           - title: 'MSA'
-            url: /Spring/MSA/
+            url: /categories/MSA/
 
     - title: 'Kafka'
       url: /kafka/
