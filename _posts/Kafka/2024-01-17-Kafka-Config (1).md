@@ -32,6 +32,7 @@ services:
         # 사용할 이미지
         image: wurstmeister/zookeeper
         container_name: zookeeper
+        # 사용 포트
         ports:
             - '2181:2181'
     # 서비스 명
@@ -76,6 +77,8 @@ $ cd /opt/kafka_2.13-2.8.1/bin
 $ kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic quickstart
 ```
 
+환경 변수
+
 -   create
     -   topic 생성
 -   replication-factor 1
@@ -83,7 +86,7 @@ $ kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --p
 -   partitions
     -   Topic내 파티션 개수 지정
 -   topic
-    -   토픽명
+    -   토픽 이름
 
 ### producer 실행
 
@@ -92,7 +95,7 @@ $ kafka-console-producer.sh --topic quickstart --bootstrap-server localhost:9092
 
 ```
 
-해당 명령어 이후 입력된 정보는 Topic에 전송됨  
+해당 명령어 이후 입력은 quickstart Topic에 전송됨  
 <img src="/assets/images/Kafka/1-3.png">
 
 ### 전송된 데이터 확인
@@ -103,7 +106,7 @@ $ kafka-console-producer.sh --topic quickstart --bootstrap-server localhost:9092
 $ kafka-console-consumer.sh --topic quickstart --from-beginning --bootstrap-server localhost:9092
 ```
 
--   bootstrap-server service:port
+-   bootstrap-server (service:port)
     -   bootstrap-server는 kafak 브로커 서비스를 나타낸다. 이때 서비스:포트 로 지정하여 접근할 수 있다
 
 다음 명령어 입력시 전송된 메시지 확인 가능하다.  

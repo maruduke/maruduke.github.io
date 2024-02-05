@@ -18,6 +18,8 @@ last_modified_at: 2024-01-18
 
 ## 1. kafka server-properties config
 
+kafka container 포트 입력한다.
+
 ```properties
 # application.properties
 
@@ -26,6 +28,8 @@ spring.kafka.bootstrap-servers = localhost:9092
 ```
 
 ## 2. kafka Topic config
+
+자바 코드로 토픽을 생성한다.
 
 ```java
 // KafkaTopicConfig.java
@@ -46,6 +50,8 @@ public class KafkaTopicConfig {
 
 ## 3. kafka producer config
 
+producer를 담당하는 kafkaTemplate를 생성하기 위해 각 설정을 입력한다.
+
 ```java
 @Configuration
 public class KafkaProducerConfig {
@@ -54,6 +60,7 @@ public class KafkaProducerConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
+    // producer 설정 입력
     public Map<String, Object> producerConfig() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
@@ -79,7 +86,7 @@ public class KafkaProducerConfig {
 }
 ```
 
--   kafka Template Topic Send Test
+모든 설정이 완료되었으면 데이터를 생성된 토픽에 전송 테스트
 
 ```java
 @SpringBootApplication

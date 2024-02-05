@@ -18,9 +18,10 @@ last_modified_at: 2024-01-21
 
 ## 1. kafka Consumer config
 
-Consumer config
+Producer과 마찬가지로 Consumer에 적용할 config 파일을 생성한다.
 
 ```java
+// KafkaConsumerConfig.java
 public class KafkaConsumerConfig {
 
     @Value("${spring.kafka.bootstrap-servers}")
@@ -56,9 +57,10 @@ public class KafkaConsumerConfig {
 
 ## 2. Kafka Listener
 
-KafkaListener.class
+producer가 특정 토픽에 전송한 데이터를 받기 위해 @KafkaListener 어노테이션을 사용
 
 ```java
+// KafkaListener.java
 @Component
 public class KafkaListeners {
 
@@ -73,9 +75,11 @@ public class KafkaListeners {
 
 ## 3. message Controller
 
-MessageController.class
+메시지 컨트롤러를 통하여 api를 통해 kafka메시지를 전송하고,
+kafkaListeners를 통해 전송 받은 데이터 확인한다.
 
 ```java
+// MessageController.java
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/messages")
