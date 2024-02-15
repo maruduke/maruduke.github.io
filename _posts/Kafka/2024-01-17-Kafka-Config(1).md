@@ -1,5 +1,5 @@
 ---
-title: '1) Docker를 사용한 Kafka 설치'
+title: '1. Docker를 사용한 Kafka 설치'
 excerpt: 'Kafka Docker-compose를 통한 설치'
 
 categories:
