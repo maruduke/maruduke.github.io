@@ -27,12 +27,12 @@ categories:
           - title: 'MSA'
             url: /categories/MSA/
 
-    - title: 'Kafka'
-      url: /categories/kafka/
-
     - title: 'Flutter'
       children:
           - title: Dart
             url: /categories/Dart/
           - title: Flutter
             url: /categories/Flutter/
+
+    - title: 'Kafka'
+      url: /categories/kafka/
