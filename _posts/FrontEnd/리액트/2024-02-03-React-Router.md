@@ -68,6 +68,7 @@ export default App;
 
 프로젝트를 실행하면 root.js에 있는 설정을 활용해서 주소창의 경로를 기준으로 컴포넌트들을 보여주게 됨.
 
+
 ## Java
 
 ## Python

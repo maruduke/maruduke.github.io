@@ -28,4 +28,11 @@ categories:
             url: /categories/MSA/
 
     - title: 'Kafka'
-      url: /categories/Kafka/
+      url: /categories/kafka/
+
+    - title: 'Flutter'
+      children:
+          - title: Dart
+            url: /categories/Dart/
+          - title: Flutter
+            url: /categories/Flutter/
