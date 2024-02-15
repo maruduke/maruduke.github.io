@@ -7,7 +7,7 @@ categories:
 tags:
     - [Spring, Kafka]
 
-permalink: Kafka/1
+permalink: /Kafka/1
 
 toc: true
 toc_sticky: true
