@@ -1,5 +1,5 @@
 ---
-title: '4. Spring Cloud Eureka'
+title: '4.Spring Cloud Eureka'
 excerpt: 'Eureka 설치 및 설정'
 
 categories:

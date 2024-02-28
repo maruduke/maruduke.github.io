@@ -1,5 +1,5 @@
 ---
-title: '3. spring cloud config server'
+title: '3.spring cloud config server'
 excerpt: '마이크로 서비스 Config server 구현'
 
 categories:

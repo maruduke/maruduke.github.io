@@ -1,5 +1,5 @@
 ---
-title: '5. Spring Cloud Gateway'
+title: '5.Spring Cloud Gateway'
 excerpt: 'Zuul 소개 및 설정'
 
 categories:

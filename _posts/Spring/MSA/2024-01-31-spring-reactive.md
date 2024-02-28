@@ -1,5 +1,5 @@
 ---
-title: '6. Reacive Programming'
+title: '6.Reacive Programming'
 excerpt: '리액티브 시스템'
 
 categories:
