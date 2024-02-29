@@ -3,11 +3,11 @@ title: 'netty-socket.io 채팅 방 구현(2)'
 excerpt: 'socket Room 생성'
 
 categories:
-    - spring-project
+    - Project
 tags:
     - [spring, socket.io]
 
-permalink: /Spring/project/2
+permalink: /project/2
 
 toc: true
 toc_sticky: true

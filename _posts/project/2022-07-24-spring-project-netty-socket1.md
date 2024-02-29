@@ -3,11 +3,11 @@ title: 'netty-socket.io 채팅 방 구현(1)'
 excerpt: 'netty-socket.io 기초'
 
 categories:
-    - spring-project
+    - Project
 tags:
     - [spring, socket.io]
 
-permalink: /Spring/project/1
+permalink: /project/1
 
 toc: true
 toc_sticky: true

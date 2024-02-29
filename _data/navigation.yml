@@ -20,8 +20,6 @@ main:
 categories:
     - title: 'Spring'
       children:
-          - title: 'spring-project'
-            url: /categories/spring-project/
           - title: 'WebSocket'
             url: /categories/WebSocket/
           - title: 'MSA'
@@ -36,3 +34,6 @@ categories:
 
     - title: 'Kafka'
       url: /categories/Kafka/
+
+    - title: 'Project'
+      url: /categories/Project/
