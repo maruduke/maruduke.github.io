@@ -1,5 +1,5 @@
 ---
-title: '2. Spring으로 Kafka Producer 설정'
+title: '1.Spring으로 Kafka Producer 설정'
 excerpt: 'Spring kafka producer'
 
 categories:
