@@ -25,11 +25,9 @@ categories:
           - title: 'MSA'
             url: /categories/MSA/
 
-    - title: 'Flutter'
+    - title: 'Front'
       children:
-          - title: Dart
-            url: /categories/Dart/
-          - title: Flutter
+          - title: 'Flutter'
             url: /categories/Flutter/
 
     - title: 'Kafka'
@@ -37,3 +35,6 @@ categories:
 
     - title: 'Project'
       url: /categories/Project/
+
+    - title: 'Book'
+      url: /categories/Book/
