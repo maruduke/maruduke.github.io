@@ -1,5 +1,5 @@
 ---
-title: [내 코드가 그렇게 이상한가요?] 1. 클래스 설계
+title: \[내 코드가 그렇게 이상한가요?\] 1. 클래스 설계
 excerpt: 'Java Class 설계법'
 
 categories:
