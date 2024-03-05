@@ -11,6 +11,9 @@ permalink: /Book/1
 
 toc: true
 toc_sticky: true
+
+date: 2023-08-19
+last_modified_at: 2023-08-19
 ---
 
 ## 생성자로 확실하게 값 설정
@@ -129,6 +132,8 @@ class Money{
 ---
 
 # 디자인 패턴
+
+---
 
 ## 완전 생성자: 잘못된 상태로부터 클래스를 보호하기 위한 디자인 패턴
 
