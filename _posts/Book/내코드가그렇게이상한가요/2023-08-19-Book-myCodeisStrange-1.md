@@ -13,7 +13,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-08-19
-last_modified_at: 2023-08-19
+last_modified_at: 2024-03-07
 ---
 
 ## 클래스 설계
