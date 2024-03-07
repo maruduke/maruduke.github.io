@@ -19,7 +19,7 @@ last_modified_at: 2023-08-20
 ## 문제점
 
 가변 변수는 사용하기 편리하고 유용하지만, 여러 에러가 발생 가능하기 쉬운 기능이다.
-가변 변수를 활용하면서 발생하는 간과되기 쉬운 문제는 다음과 같다.
+가변 변수를 활용하면서 발생하는 문제는 다음과 같다.
 
 ---
 
@@ -54,10 +54,11 @@ class Weapon() {
 }
 
 
-// AttackPower 인스턴스 재사용하기
+
 
 AttackPower attackPower = new AttackPower(20);
 
+// 하나의 AttackPower 인스턴스 재사용하기
 Weapon weaponA = new Weapon(attackPower);
 Weapon weaponB = new Weapon(attackPower);
 
@@ -71,7 +72,7 @@ weaponB.value = 25
 */
 ```
 
-하나의 무기의 공격력 인스턴스를 수정하자 다른 무기 또한 공격력이 변하는 오류가 발생했다.
+A 무기의 공격력 인스턴스를 수정하자 같은 인스턴스를 주입받은 B 무기 또한 영향을 받았다.
 
 ---
 
@@ -103,7 +104,8 @@ weaponB.value = 20
 
 <mark>2. 함수로 가변 인스턴스 조작하기 </mark>
 
-함수로 가변 인스턴스를 조작하는 경우는 우리가 스레드 개념을 활용하기 시작하면 명령이 겹쳐서 오류가 발생한다.
+함수로 가변 인스턴스를 조작하는 경우는 특별한 문제가 없어 보인다.  
+그러나 스레드 개념을 활용하기 시작하면 명령이 겹쳐 오류가 발생한다.
 
 ```java
 // 공격력을 나타내는 클래스
@@ -144,6 +146,8 @@ class AttackPower {
 
 앞의 문제를 최소화하기 위한 방안은 다음과 같다.
 
+---
+
 ### 불변 변수로 만들어 재할당 막기
 
 가변 변수로 만들경우 `예상치 못한 곳에서 변형(멀티 스레드 환경)`이 일어나 오류가 발생할 수 있다.  
@@ -164,6 +168,8 @@ class Money{
 }
 ```
 
+---
+
 ### 매개 변수도 불변으로 만들기
 
 전달되는 매개 변수와 지역 변수 또한 로직 중간에 변경되어 오류가 발생하는 경우가 많으므로 불변 변수로 지정한다.
@@ -178,7 +184,16 @@ class Money {
 }
 ```
 
+---
+
 ### 함수의 영향 범위 한정하기
+
+-   `주요 작용`
+
+    -   함수가 매개변수를 전달 받고, 값을 리턴하는 것
+
+-   `부수 효과`
+    -   함수가 매개변수를 전달 받고 값을 리턴하는 것 이외에 외부 상태를 변경하는 것
 
 부수 효과가 있는 함수는 영향 범위를 예측하기 어려움으로 함수가 영향을 주거나 받는 범위를 한정하는 것이 좋음
 
@@ -190,13 +205,18 @@ class Money {
 
 따라서 매개 변수로 상태를 받고, 상태는 변경하지 않고, 값을 리턴하기만 하는 함수가 가장 이상적이다.
 
+---
+
 ### 불변으로 만들어서 예기치 못한 상황 막기
+
+위의 원칙들을 적용하여 불변 변수로 만든 코드는 다음과 같다.
+메서드는 불변 변수를 받고 불변 인스턴스를 반환한다.
 
 ```java
 // 공격력을 나타내는 클래스
 class AttackPower {
 	static final int MIN = 0;
-	final int value; // 가변 변수
+	final int value; // 가변 필요 변수
 
 	AttackPower(int value) {
 		if (value < MIN){
@@ -254,13 +274,14 @@ final AttackPower increment = new AttackPower(5);
 final Weapon reinforceWeaponA = weaponA.reinforce(increment);
 ```
 
-### 기본적으로 불변으로 성능 중시 시 가변으로
+---
 
 ### 상태를 변경하는 메서드 설계하기
 
+-   상태를 변화시키는 메서드를 mutater이라고 함.
+-   조건에 맞는 올바른 상태로 변경하는 mutater로 수정
+
 ```java
-// 상태를 변화시키는 메서드를 뮤테이터라고합니다.
-// 조건에 맞는 올바른 상태로 변경하는 뮤테이터로 바꿔 봅시다.
 
 class HitPoint {
 
@@ -275,13 +296,14 @@ class HitPoint {
     }
 
 
-    /*
+    /**
     * 대미지 받는 처리
     * @param damageAmount 데미지 크기
      */
 
     void damage(final int damageAmount) {
         final int nextAmount = amount - damageAmount;
+		// 조건 체크
         amount = Math.max(MIN, nextAmount);
     }
 
@@ -303,6 +325,7 @@ class Member {
      */
     void damage(final int damageAmount) {
         hitPoint.damage(damageAmount);
+		// 조건 체크
         if(hitPoint.isZero()) {
             states.add(StateType.dead);
         }
@@ -311,4 +334,22 @@ class Member {
 }
 ```
 
+---
+
+### 기본적으로 불변으로 성능 중시 시 가변으로
+
+-   기본적으로 불변으로
+
+    -   변수의 의미가 변하지 않아 혼동이 적음
+    -   동작이 안정적이기 때문에 결과 예측이 쉬움
+    -   코드의 영향 범위가 한정적이므로 유지 보수가 쉬움
+
+-   가변이 필요한 경우
+    -   성능이 중요한 경우(크기가 큰 인스턴스 생성은 시간이 오래 걸림)
+
+---
+
 ### 코드 외부와 데이터 교환은 국소화
+
+-   특별한 이유 없이 외부 상태에 의존하는 코드를 작성할 경우, 동작 예측이 힘들어지므로 문제가 발생할 가능성이 높음
+-   파일을 읽고 쓰는 I/O 조작은 코드 외부의 상태에 의존
