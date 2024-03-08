@@ -13,7 +13,7 @@ toc: true
 toc_sticky: true
 
 date: 2023-08-21
-last_modified_at: 2024-03-07
+last_modified_at: 2024-03-08
 ---
 
 ## 응집도
@@ -24,17 +24,24 @@ last_modified_at: 2024-03-07
 
 다음으로 응집도가 낮아지는 설계의 원인에 대해 분석해보겠다.
 
-### 응집도 ⬊: static 메서드 오용
+### 1. static 메서드 오용
 
-// 데이터와 로직이 서로 다른 클래스에 작성하는 문제 발생
+> -   왜 static 메서드를 사용할까?
+>
+> 1. 객체지향 언어를 사용할 때 절차 지향 언어의 접근 방법을 사용하기 때문이다.
+> 2. 클래스의 인스턴스를 만들지 않아도 되므로, 간단하게 사용할 수 있다.
 
-/\*
+그러나 static 메서드를 오용하여 기능을 생성할 경우  
+데이터와 로직이 서로 다른 클래스에 작성하는 `중복`을 비롯한 응집도 감소의 문제 발생
 
-1.  static 메서드는 인스턴스 변수를 사용할 수 없음
-    -> 데이터와 데이터를 조작하는 로직 괴리 발생
-    \*/
+다음은 static 메서드 오용으로 나타나는 문제의 예시이다.
 
 ```java
+/*
+static 메서드는 인스턴스 변수를 사용할 수 없음
+-> 데이터와 데이터를 조작하는 로직 괴리 발생
+*/
+
 class OrderManager() {
 
     static int add(int moneyAmount1, int moneyAmount2) {
@@ -45,26 +52,31 @@ class OrderManager() {
 moneyData1.amount = OrderManager.add(moneyData1.amount, moneydata2.amount);
 ```
 
-//4. 왜 static 메서드를 사용할까?
-/_
-객체지향 언어를 사용할 때 절차 지향 언어의 접근 방법을 사용하려 하기 때문
-클래스의 인스턴스를 만들지 않아도 되므로, 간단하게 사용할 수 있으나 응집도가 낮아짐
-_/
+#### 해결 방법
+
+> 1.  인스턴스 변수를 사용하는 구조로 변경하기
+> 2.  인스턴스 메서드 인척하는 static 메서드 주의하기
+
+static 메서드를 사용 가능한 경우는 다음과 같다.
 
 ```java
-// 2. 인스턴스 변수를 사용하는 구조로 변경하기
 
-// 3. 인스턴스 메서드 인척하는 static 메서드 주의하기
 class OrderManager() {
 
-		private int discountRate // 할인율
+	private int discountRate // 할인율
+
     int add(int moneyAmount1, int moneyAmount2) {
         return moneyAmount1 + moneyAmount2;
     }
 }
-// 인스턴스 메서드이나 인스턴스 변수 discountRate를 전혀 사용하지 않음
-// 매개변수로 받은 값만 활용하므로 static메서드와 차이가 없음
-// 메서드 앞에 static 키워드를 추가하여 잘 작동된다면 인스턴스 static 메소드 구분 가능함
+/*
+* 인스턴스 메서드나 인스턴스 변수 discountRate를 전혀 사용하지 않음
+* 매개변수로 받은 값만 활용하므로 static메서드와 차이가 없음
+*/
+
+/*
+* 메서드 앞에 static 키워드를 추가하여 잘 작동된다면 인스턴스 static 메소드 구분 가능함
+*/
 
 ```
 
@@ -74,6 +86,8 @@ class OrderManager() {
 ---
 
 ## 2. 초기화 로직 분산
+
+아래의 giftpoint 클래스에는 포인트를 추가하는 메서드와 소비하는 메서드가 정의되어 있으므로, 응집도가 높아 보이나 사실 그렇지 않음
 
 ```java
 class GiftPoint {
@@ -122,24 +136,23 @@ class GiftPoint {
 
 }
 
-// giftpoint 클래스에는 포이트를 추가하는 메서드와 소비하는 메서드가 정의되어 있으므로,
-// 응집도가 높아 보이나 사실 그렇지 않음
 
 GiftPoint standardMembershipPoint = new GiftPoint(3000);
 
 GiftPoint premiumMembershipPoint = new GiftPoint(10000);
 
-//생성자를 public으로 만들면, 의도하지 않은 용도로 사용될 수 있음.
-//결과적으로 로직이 분산되기 때문에 유지 보수하기 힘들어짐
-// 회원 가입 포인트를 변경하기 원할 때 소스 코드 전체 확인 필요
-
 ```
 
-1. private 생성자 + 팩토리 메서드를 사용해 목적에 따라 초기화하기
+생성자를 public으로 만들면, 의도하지 않은 용도로 사용될 수 있음.
+결과적으로 로직이 분산되기 때문에 유지 보수하기 힘들어짐
+회원 가입 포인트를 변경하기 원할 때 소스 코드 전체 확인 필요
+
+#### 해결 방법
+
+> > 초기화 로직 분산을 막으려면 생성자를 private로 만들고, 대신 목적에 따라 팩토리 메서드로 만들기
 
 ```java
-// 초기화 로직 분산을 막으려면 생성자를 private로 만들고, 대신 목적에 따라 팩토리 메서드
-// 로 만들기
+
 
 class GiftPoint {
     private static final int MIN_POINT = 0;
@@ -173,23 +186,23 @@ class GiftPoint {
 }
 ```
 
+---
+
 ## 3. 범용 처리 클래스(Common/Util)
 
-```java
-/*
-	static 메서드를 빈번하게 볼 수 있는 클래스로, 범용 처리를 위한 클래스가 존재
-	일반적으로 이런 클래스에는 Common, Util이라는 이름이 붙
-*/
+static 메서드를 빈번하게 볼 수 있는 클래스로, 범용 처리를 위한 클래스가 존재한다.  
+일반적으로 이런 클래스에는 Common, Util이라는 이름이 붙음
 
+```java
 class Common() {
 	static ~~~
 }
 ```
 
-횡단 관심사
+-   꼭 필요하지 않다면 범용 처리 클래스를 만들지 않는 것이 좋음
 
--   꼭 필요한 경우가 아니면 범용 처리 클래스를 만들지 않는 것이 좋음
--   but, 로그 출력과 오류 확인은 모든 동작에서 필요한 기능 이처럼, 넓게 활용되는 기능을 횡단 관심사라고 부른다.
+-   but, 로그 출력과 오류 확인은 모든 동작에서 필요한 기능처럼, 넓게 활용되는 기능을 `횡단 관심사`라고 부른다. 해당 기능은 범용 처리 클래스로 사용하더라도 응집도가 낮아지지 않는다.
+-   횡단 관심사 종류
     -   로그 출력
     -   오류 확인
     -   디버깅
@@ -198,18 +211,24 @@ class Common() {
     -   동기화
     -   분산 처리
 
-## 4. ⬈ 결과를 리턴하는데 매개변수 사용하지 않기
+---
+
+## 4. 결과를 리턴하는데 매개변수 사용하지 않기
+
+다음 코드는 함수의 매개변수를 변경하고 있다.
 
 ```java
-// 매개 변수 변경하고 있음
 void shift(Location location, int shiftX, int shiftY) {
 	location.x += shiftX;
 	location.y += shiftY;
 }
 
-// -> 매개 변수가 변경되었음을 외부에서 알 수 없음
-// 매개 변수를 변경하지 않는 구조로 개선
+```
 
+해당 코드로서는 `매개 변수가 변경되었음을 외부에서 알 수 없으므로`
+매개 변수를 변경하지 않는 구조로 개선한다.
+
+```java
 class Location {
 	final int x;
 	final int y;
@@ -230,13 +249,11 @@ class Location {
 }
 ```
 
-## 응집도 ⬊: 매개변수가 너무 많은 경우
+## 5. 매개변수가 너무 많은 경우
 
 매개변수가 너무 많은 메서드는 응집도가 낮아짐
 
-→ 기본 자료형에 대한 집착을 버려라
-
-→ 중복 코드가 다양해짐
+`기본 자료형에 대한 집착을 버리고 구체적인 자료형을 설계한다.`
 
 ```java
 // 정가라는 구체적인 자료형 설계
@@ -269,10 +286,13 @@ class DiscountedPrice{
 	}
 }
 
-// 의미 있는 단위는 모두 클래스로 만들기
-// 매개 변수가 너무 많으면 개념적으로 의미 있는 클래스를 만들어야 함
+```
 
-/*매직 포인트*/
+`의미 있는 단위는 모두 클래스로 만들기`  
+ 매개 변수가 너무 많으면 개념적으로 의미 있는 클래스를 만들어야 함
+
+```java
+//매직 포인트
 class MagicPoint {
 	// 현재 잔량
 	int currentAmount;
@@ -281,11 +301,13 @@ class MagicPoint {
 	// 장비 착용에 따른 최댓값 증가량
 	List<Integer> maxIncrements;
 }
+```
 
-// 이렇게 코드를 만들면, 최댓값 계산 로직과 회복 로직이 다른 클래스에도 작성될 수 있음
-// 따라서 매직포인트 최댓값 계산과 회복 메서드를 MagicPoint클래스에 정의
-// 이때 다른 클래스에서 불필요한 조작 금지를 위해 인스턴스 변수는 private로 만듬
+-   이렇게 코드를 만들면, 최댓값 계산 로직과 회복 로직이 다른 클래스에도 작성될 수 있음
+-   따라서 매직포인트 최댓값 계산과 회복 메서드를 MagicPoint클래스 내부에 정의
+-   이때 다른 클래스에서 불필요한 조작 금지를 위해 인스턴스 변수는 private로 만듬
 
+```java
 class MagicPoint {
 	// 현재 잔량
 	private int currentAmount;
@@ -326,6 +348,8 @@ class MagicPoint {
 }
 ```
 
+---
+
 ## 6. 묻지 않고 명령하기
 
 다른 객체의 내부 상태를 기반으로 판단하거나 제어하려 하지 말고, 메서드로 명령해서 객체가 알아서 판단하고 제어하도록 설계하라는 의미
@@ -343,6 +367,7 @@ class Equipments {
      * @param newArmor 장비할 갑옷
      */
     void equipArmor(final Equipment newArmor) {
+        // 객체가 알아서 판단하고 제어
         if(canChange) {
             armor = newArmor;
         }
