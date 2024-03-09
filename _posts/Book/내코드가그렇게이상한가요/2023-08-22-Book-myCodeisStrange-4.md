@@ -7,7 +7,7 @@ categories:
 tags:
     - [Book, JAVA]
 
-permalink: /Book/5
+permalink: /Book/4
 
 toc: true
 toc_sticky: true
