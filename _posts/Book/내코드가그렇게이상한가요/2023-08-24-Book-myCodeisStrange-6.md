@@ -46,6 +46,8 @@ class DiscountManager {
     -   productDiscount.canDiscount를 확인하여 할인 가능한 경우 할인 가격을 모두 더하고, 할인 불가능한 경우 원래 상품 가격을 모두 더합니다.
     -   가격 총합이 상한가인 200,000원 이내인 경우 상품 리스트 추가
 
+---
+
 ### 새로운 요구사항 추가
 
 DiscountManager를 담당하지 않은 다른 담당자가 SummerDiscountManager 클래스를 구현
@@ -68,6 +70,8 @@ class SummerDiscountManager {
 -   productDiscount.canDiscount를 확인하여 할인 가능한 경우 할인 가격을 모두 더하고, 할인 불가능한 경우 원래 상품 가격을 모두 더합니다.
 -   가격 총합이 상한가인 300,000원 이내인 경우 상품 리스트 추가
 
+---
+
 #### 다양한 버그 발생
 
 -   일반 할인 가격을 3000원 → 4000원 변경하였을 경우
@@ -86,12 +90,16 @@ class DiscountManager {
 
 -   여름 할인 서비스를 담당하는 SummerDiscountManager에서 DiscountManager.getDiscountPrice를 사용하고 있기 때문입니다.
 
+---
+
 #### 로직의 위치에 일관성이 없음으로 일어나는 일
 
 -   DiscountManager 가 상품 정보 말고도 너무 많은 일을 함
     Product가 직접 해야 하는 유효성 검사 로직이 DiscountManager, SummerDiscountManager 에 구현되어 있음
 -   ProductDiscount.canDiscount, Product.canDiscount 의 이름이 유사해서 어떤 것이 어떤 상품인지 구분이 어려움
 -   SummerDicsountManager 에서 DiscountManager 의 로직을 활용함
+
+---
 
 ### 단일 책임 원칙
 
