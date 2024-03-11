@@ -1,5 +1,5 @@
 ---
-title: 'netty-socket.io 채팅 방 구현(1)'
+title: 'netty-socket.io 실시간 채팅 방 구현(1)'
 excerpt: 'netty-socket.io 기초'
 
 categories:
@@ -22,7 +22,17 @@ last_modified_at: 2023-12-26
 
 Socket.io가 지원하는 기술이 다양하고 편리하여 Spring에서도 Socket.io를 지원하지 않을까 싶어 관련 기술을 찾던 도중 Socket.io를 지원하는 netty-socket.io를 발견하여 사용하게 되었다.
 
--   공부하던 중 왜 해당 기술을 사용하지 않는가에 대해 궁금했는데 아마 SockJS의 STOMP프로토콜에서는 Kafka나 RabbitMQ와 같은 대용량 처리 기술과 연계되었지만 netty-socket.io는 대용량 기술 연계 기술이 없는 문제로 인하여 사용하지 않을까 생각 중이다. 추가적으로 socket Room과 같은 편의 기능도 kafka 등으로 구현 가능하다는 점도 있는 것 같다.
+> 공부하던 중 왜 해당 기술을 사용하지 않는가에 대해 궁금했는데 생각되는 이유는 다음과 같다.
+>
+> -   SocketIO 기술은 브라우저 호환성 문제가 아직 남아 있는 반면 SockJS의 경우 호환성 우려가 없다는 점
+> -   SockJS의 STOMP프로토콜에서는 Kafka나 RabbitMQ와 같은 대용량 처리 기술과 패키지로 연계되었지만 netty-socket.io는 대용량 기술 연계 기술이 없는 문제로 인하여 사용하지 않을까 생각 중이다.
+> -   Netty 서버의 어려움과 netty-socket.io 기술의 메뉴얼, 자료 부재 등(정말 관련 자료를 찾기 힘들었다.)
+
+위와 같은 이유로 사용되지 않고 있지 않을까 생각된다. 그래도 최근에 리액티브 프로그래밍으로 인해 Netty가 사용되는 만큼 충분히 주목 받을 수 있는 기술이라 생각된다.
+
+### netty-socket.io 채팅창 깃허브 링크
+
+[netty-socket.io 채팅창 깃허브 링크](https://github.com/maruduke/flutter-chatting/tree/main)
 
 ## 1. 의존성 설정
 
@@ -45,6 +55,8 @@ public class socketConfig {
 
     // 소켓 서버 url 설정
     private String host = "localhost";
+
+
     private int port = 8082;
 
 
@@ -53,7 +65,7 @@ public class socketConfig {
         com.corundumstudio.socketio.Configuration config = new com.corundumstudio.socketio.Configuration();
         config.setHostname(host);
         config.setPort(port);
-        // socket port 번호는 http 통신 포트와 다르게 설정해야 오류가 발생하지 않음
+
 
         return new SocketIOServer(config);
 
@@ -61,15 +73,25 @@ public class socketConfig {
 }
 ```
 
+### Trouble Shooting
+
+```java
+private int port = 8082;
+```
+
+> socket port 번호는 http 통신 포트와 다르게 설정해야 오류가 발생하지 않음
+>
+> -   localhost:8080으로 서버 포트를 설정하였다면 소켓 포트는 다른 포트(8082)로 지정. ~~간단한 실수인데 오류 메시지도 없어서 많이 헤멨다.~~
+
 ## 3. Socket server 실행
 
 앞에서 설정한 socket 서버를 실행을 담당하는 파일이다.
+스프링 부트 구동 시점에 서버가 실행되도록 선언한다.
 
-/Config/ServerCommandLine.java
+`/Config/ServerCommandLine.java`
 
 ```java
 
-// ServerCommandLine.java
 @Component
 @RequiredArgsConstructor
 public class ServerCommandLine implements CommandLineRunner {
@@ -85,8 +107,9 @@ public class ServerCommandLine implements CommandLineRunner {
 
 ## 4. Socket 연결,연결 끊김 시 이벤트 설정
 
-Socket 연결, 끊김 이벤트를 추가하여 서버의 연결 상태를 확인하는 데 활용한다.
-/Config/SocketModule.java
+Socket서버에서 발생하는 연결, 끊김 이벤트를 추가하여 클라이언트와 서버의 연결 상태를 확인 및 이벤트를 처리하는 데 활용하는 함수를 선언한다.
+
+`/Config/SocketModule.java`
 
 ```java
 @Component
@@ -98,10 +121,10 @@ public class SocketModule {
         this.server = server;
         this.socketServcie = socketServcie;
 
-        // socket client 연결 성공 시 실행 메소드 추가
+        // client 연결 성공 시 이벤트 추가
         server.addConnectListener(onConnected());
 
-        // socket client 연결 끊김 발생 시 실행 메소드 추가
+        // client 연결 끊김 발생 시 이벤트 추가
         server.addDisconnectListener(onDisconnected());
 
     }
@@ -127,7 +150,8 @@ public class SocketModule {
 ## 5. Socket event 추가
 
 다음은 클라이언트가 전송한 특정 메시지를 연결된 서버에 받았을 경우, 수신받은 메시지의 데이터 등을 처리하는 방법이다.
-/Config/SocketModule.java에 해당 코드를 추가한다.
+
+`/Config/SocketModule.java`
 
 ```java
 @Component
