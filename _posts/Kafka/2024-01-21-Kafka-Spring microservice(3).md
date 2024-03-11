@@ -1,5 +1,5 @@
 ---
-title: '2.Kafka Consumer config'
+title: '\[Kafka\] 2. Kafka Consumer config'
 excerpt: 'Spring kafka Consumer'
 
 categories:
