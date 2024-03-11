@@ -24,14 +24,13 @@ categories:
             url: /categories/WebSocket/
           - title: 'MSA'
             url: /categories/MSA/
+          - title: 'Kafka'
+            url: /categories/Kafka/
 
-    - title: 'Front'
-      children:
-          - title: 'Flutter'
-            url: /categories/Flutter/
-
-    - title: 'Kafka'
-      url: /categories/Kafka/
+    # - title: 'Front'
+    #   children:
+    #       - title: 'Flutter'
+    #         url: /categories/Flutter/
 
     - title: 'Project'
       url: /categories/Project/
