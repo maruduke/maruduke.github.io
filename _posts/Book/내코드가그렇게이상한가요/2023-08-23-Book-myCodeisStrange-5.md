@@ -41,6 +41,8 @@ boolean hasPrisonKey = items.stream().anyMatch({
 -   표준 컬렉션 라이브러리에는 anyMatch이외에도 편리한 메서드가 존재한다.
     for 반복문을 사용해 컬렉션을 직접 조작하고 있다면 같은 기능을 하는 메서드를 찾아보시오
 
+---
+
 ### 반복 처리 내부의 조건 분기 처리
 
 ```java
@@ -70,6 +72,8 @@ for (Member member : members) {
     member.hitPoint = 0;
 }
 ```
+
+---
 
 ### 응집도가 낮은 컬렉션 처리
 
@@ -144,6 +148,8 @@ class Party {
     }
 }
 ```
+
+---
 
 ### 외부로 전달할 때 컬렉션의 변경 막기
 
