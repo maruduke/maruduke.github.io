@@ -42,6 +42,8 @@ build.gradle에 의존성을 추가하여 netty-socket.io 라이브러리 설치
 implementation 'com.corundumstudio.socketio:netty-socketio:2.0.6'
 ```
 
+---
+
 ## 2. Socket 서버 설정
 
 Socket 서버 설정과 관련된 내용을 작성한다.
@@ -83,6 +85,8 @@ private int port = 8082;
 >
 > -   localhost:8080으로 서버 포트를 설정하였다면 소켓 포트는 다른 포트(8082)로 지정. ~~간단한 실수인데 오류 메시지도 없어서 많이 헤멨다.~~
 
+---
+
 ## 3. Socket server 실행
 
 앞에서 설정한 socket 서버를 실행을 담당하는 파일이다.
@@ -104,6 +108,8 @@ public class ServerCommandLine implements CommandLineRunner {
     }
 }
 ```
+
+---
 
 ## 4. Socket 연결,연결 끊김 시 이벤트 설정
 
@@ -147,6 +153,8 @@ public class SocketModule {
 }
 ```
 
+---
+
 ## 5. Socket event 추가
 
 다음은 클라이언트가 전송한 특정 메시지를 연결된 서버에 받았을 경우, 수신받은 메시지의 데이터 등을 처리하는 방법이다.
@@ -163,9 +171,12 @@ public class SocketModule {
 
         // ...생략
 
-        // 특정 메시지(send_message)를 수신 시 실행되는 메서드를 설정
-        // 1. 이벤트 이름 2. 받을 데이터를 파싱할 클래스
-        // 3.받은 데이터를 처리하는 함수
+        /*
+        * 특정 메시지를 수신 시 실행되는 메서드를 설정
+        * 1. 이벤트 이름("send_message")
+        * 2. 전송된 데이터를 파싱할 클래스
+        * 3. 받은 데이터를 처리하는 함수
+        */
         server.addEventListener("send_message", String.class, onChatReceived());
     }
 
@@ -179,3 +190,5 @@ public class SocketModule {
         };
     }
 ```
+
+---
