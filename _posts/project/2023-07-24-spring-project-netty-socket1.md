@@ -1,6 +1,6 @@
 ---
-title: 'netty-socket.io 실시간 채팅 방 구현(1)'
-excerpt: 'netty-socket.io 기초'
+title: '\[Project\] netty-socket.io 실시간 채팅 방 구현(1)'
+excerpt: 'netty-socket.io 기초 - 백엔드'
 
 categories:
     - Project

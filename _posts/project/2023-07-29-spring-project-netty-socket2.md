@@ -1,6 +1,6 @@
 ---
-title: 'netty-socket.io 채팅 방 구현(2)'
-excerpt: 'socket Room 생성'
+title: '\[Project\] netty-socket.io 채팅 방 구현(2)'
+excerpt: 'socket Room 생성 - 백엔드'
 
 categories:
     - Project

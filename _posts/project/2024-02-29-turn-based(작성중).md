@@ -1,13 +1,13 @@
 ---
-title: '턴제 기반 게임 생성 프로젝트'
-excerpt: 'Socket과 Thread를 활용한 턴제 기반 게임'
+title: '\[Project\] 턴제 기반 게임 구현'
+excerpt: 'Java Socket과 Thread를 활용한 턴제 기반 게임'
 
 categories:
     - Project
 tags:
     - [Java, Socket, Game]
 
-permalink: /project/3
+permalink: /project/4
 
 toc: true
 toc_sticky: true
