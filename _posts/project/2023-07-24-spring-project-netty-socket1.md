@@ -16,6 +16,12 @@ date: 2023-12-26
 last_modified_at: 2023-12-26
 ---
 
+## Github Repository
+
+[netty-socket.io + Flutter로 개발한 채팅창](https://github.com/maruduke/flutter-chatting)
+
+---
+
 ## netty-socket.io
 
 스프링 프레임워크에서는 WebSocket 통신 기술은 보통 SockJS라이브러리를 기본적으로 사용한다. 반면 NodeJS와 같은 프레임워크에서는 Socket.io를 기반으로 개발한다.

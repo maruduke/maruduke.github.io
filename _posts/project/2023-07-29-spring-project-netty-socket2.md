@@ -16,6 +16,10 @@ date: 2023-12-29
 last_modified_at: 2023-12-29
 ---
 
+## Github 주소
+
+[netty-socket.io + Flutter로 개발한 채팅창](https://github.com/maruduke/flutter-chatting)
+
 ## 소개
 
 해당 파트에서는 참여자가 채팅 룸에 입장하여 같은 룸에 있는 참여자끼리 메시지를 소통할 수 있는 형태를 구현하고자 한다.
