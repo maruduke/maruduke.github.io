@@ -1,5 +1,5 @@
 ---
-title: '\[Project\] netty-socket.io 채팅 방 구현(2)'
+title: '\[Project\] netty-socket.io 실시간 채팅 방 구현(2)'
 excerpt: 'socket Room 생성 - 백엔드'
 
 categories:
@@ -16,9 +16,11 @@ date: 2023-12-29
 last_modified_at: 2023-12-29
 ---
 
-## Github 주소
+## Github Repository
 
 [netty-socket.io + Flutter로 개발한 채팅창](https://github.com/maruduke/flutter-chatting)
+
+---
 
 ## 소개
 
