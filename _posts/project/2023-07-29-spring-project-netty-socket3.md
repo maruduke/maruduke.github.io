@@ -1,5 +1,5 @@
 ---
-title: '\[Project\] netty-socket.io 실시간 채팅 방 구현(3) (수정 중)'
+title: '\[Project\] netty-socket.io 실시간 채팅 방 구현(3)'
 excerpt: '채팅방 구현 api 작성 - 백엔드 '
 
 categories:
