@@ -1,5 +1,5 @@
 ---
-title: "java.sql.SQLIntegrityConstraintViolationException: Duplicate entry \'salt\' for key 'users.salt' "
+title: 'java.sql.SQLIntegrityConstraintViolationException: Duplicate entry  ~ for key ~'
 excerpt: 'UNIQUE 설정 오류'
 
 categories:
