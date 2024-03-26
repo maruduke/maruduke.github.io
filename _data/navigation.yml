@@ -30,6 +30,8 @@ categories:
             url: /categories/MSA/
           - title: 'Kafka'
             url: /categories/Kafka/
+          - title: 'TroubleShoot'
+            url: /categories/spring/troubleShoot/
 
     # - title: 'Front'
     #   children:
