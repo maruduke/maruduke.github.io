@@ -1,5 +1,5 @@
 ---
-title: '\[Project\] 가계부 구현 회고록'
+title: '\[Project\] TheMore(가계부) 팀프로젝트 회고록'
 excerpt: 'Java WebSocket을 활용한 가계부 구현'
 
 categories:
@@ -18,32 +18,77 @@ last_modified_at: 2024-03-22
 
 ## 가계부 구현 프로젝트
 
+### 프로젝트 개요
+
+BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
+해당 프로젝트는 사용자에게 가계부 기능을 제공한다. 또한 채팅을 활용하여 서로의 소비 습관을 피드백 할 수 있도록 한다.
+자세한 기능 설명은 하단의 Github 주소를 참조해주길 바란다.
+
+프로젝트 인원: 6인  
+프로젝트 기간: 2024.3.15 ~ 3.24 (9일)
+
+#### 사용 스택
+
+<p align="center">
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+<img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white">
+</p>
+
+<p align ="center">
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=openjdk&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white">
+<img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white">
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
+<img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white">
+</p>
+
 ### 프로젝트 Github 저장소
 
 [The More(더 모아) 가계부](https://github.com/iiiiii-dle/TheMore)
 
-### 프로젝트 개요
+## 프로젝트 회고
 
-BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트이다.  
-자세한 기능 설명은 깃 주소를 참조하길 바란다.
+### 1. 기능 작성표
 
-### 프로젝트 기간 , 협업 인원, ... 기타 정보
+프로젝트 초반에 어떤 기능을 구현할 지에 대해 엑셀을 활용하여 정의하는 과정을 수행하였다.
 
-프로젝트 기간 3-15 ~ 3-24
+<p align = "center">
+    <img src="/assets/images/project/TheMore/6-1.png" width="80%">
+</p>
 
-## 프로젝트 회고록
+미리 정의함으로써 팀원끼리 역할 나눔 수행, 프로젝트 기간 시간을 최대한 맞추기 위해 빠르게 기능 잘라내기, 아무튼 등
 
-### 첫 팀 프로젝트로서 협업 방식
+### 2. ERD표 작성
 
--   기능 작성표
--   DB 선 작성
+기능 작성표를 기반으로 DB 스키마 설계
+
+### 3. Figma 작성
+
+메인 페이지 화면 설계
+
+### 4. Github 설정
+
+branch 설계
+
 -   github -> 협업 방식에 대한 이모저모, ...
     일어난 사고 -> git rollback문제, 실수로 브랜치 머지 안하고 날린거 등
 
--   slack
--   notion > 칸반보드
+### 5. Slack
 
-## 이런 저런 생각
+Slack 사용
+
+### 6. Notion
+
+칸반보드, 회의록 작성, ...
+
+---
+
+## 후일담?
 
 ### WebSocket 제한
 
