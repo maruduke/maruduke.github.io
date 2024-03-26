@@ -7,7 +7,7 @@ categories:
 tags:
     - [JAVA, SQL, TroubleShoot]
 
-permalink: /Java/troubleShooting/1
+permalink: /Java/troubleShoot/1
 
 toc: true
 toc_sticky: true
