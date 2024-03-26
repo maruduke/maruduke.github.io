@@ -3,11 +3,11 @@ title: 'java.sql.SQLIntegrityConstraintViolationException: Duplicate entry  ~ fo
 excerpt: 'UNIQUE 설정 오류'
 
 categories:
-    - Java
+    - troubleShoot
 tags:
     - [JAVA, SQL, TroubleShooting]
 
-permalink: /Java/TroubleShooting/1
+permalink: /Java/troubleShooting/1
 
 toc: true
 toc_sticky: true

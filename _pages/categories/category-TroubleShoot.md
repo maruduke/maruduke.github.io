@@ -1,7 +1,7 @@
 ---
 title: 'troubleShoot'
 layout: category
-permalink: /categories/java/troubleShoot
+permalink: /categories/troubleShoot
 author_profile: true
 taxonomy: troubleShoot
 sidebar:

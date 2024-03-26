@@ -18,10 +18,6 @@ main:
 # sidebar navigation (categories)
 # 2022.02.15 sidebar update : simple ver.
 categories:
-    - title: 'Java'
-      children:
-          - title: 'TroubleShoot'
-            url: /categories/java/troubleShoot/
     - title: 'Spring'
       children:
           - title: 'WebSocket'
@@ -30,18 +26,19 @@ categories:
             url: /categories/MSA/
           - title: 'Kafka'
             url: /categories/Kafka/
-          - title: 'TroubleShoot'
-            url: /categories/spring/troubleShoot/
 
     # - title: 'Front'
     #   children:
     #       - title: 'Flutter'
     #         url: /categories/Flutter/
 
-    - title: '협업 툴'
+    - title: 'Collaboration Tools'
 
     - title: 'Project'
       url: /categories/Project/
+
+    - title: 'troubleShoot'
+      url: /categories/troubleShoot/
 
     - title: 'Book'
       url: /categories/Book/
