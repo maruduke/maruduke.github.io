@@ -29,18 +29,18 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 
 #### 사용 스택
 
-<p align="center">
+<p align="center" style="margin: 0">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
 <img src="https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white">
 </p>
 
-<p align ="center">
+<p align ="center" style="margin: 0">
 <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=openjdk&logoColor=white">
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
 </p>
 
-<p align="center">
+<p align="center" style="margin: 0">
 <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white">
 <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white">
 <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
@@ -51,7 +51,11 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 
 [The More(더 모아) 가계부](https://github.com/iiiiii-dle/TheMore)
 
+---
+
 ## 프로젝트 회고
+
+해당 프로젝트를 진행함으로써 다양한 협업 방법론에 대해 다양한 경험을 진행하게 됨
 
 ### 1. 기능 작성표
 
@@ -67,22 +71,40 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 
 기능 작성표를 기반으로 DB 스키마 설계
 
+<p align = "center">
+    <img src="/assets/images/project/TheMore/6-2.png" width="80%">
+</p>
+
+일부 기능 미구현으로 추가되거나, 사용하지 않는 값들이 생성되는 문제 발생
+
 ### 3. Figma 작성
 
 메인 페이지 화면 설계
+
+<p align = "center">
+    <img src="/assets/images/project/TheMore/6-3.png" width="80%">
+</p>
 
 ### 4. Github 설정
 
 branch 설계
 
 -   github -> 협업 방식에 대한 이모저모, ...
-    일어난 사고 -> git rollback문제, 실수로 브랜치 머지 안하고 날린거 등
+    일어난 사고 -> git rollback문제, 실수로 브랜치 머지 안하고 날린거 등, git 최종 머지 때 발생한 문제(main 브랜치를 다른 브랜치로 만들어 발생한 오류 -> 서로 베이스가 달라서 그런지 충돌이 남)
 
 ### 5. Slack
 
-Slack 사용
+Slack 사용, github 연결, 허들을 사용하여 원격 공유, 스레드 기능 등
+
+<p align = "center">
+    <img src="/assets/images/project/TheMore/6-4.png" width="80%">
+</p>
 
 ### 6. Notion
+
+<p align = "center">
+    <img src="/assets/images/project/TheMore/6-5.png" width="80%">
+</p>
 
 칸반보드, 회의록 작성, ...
 
