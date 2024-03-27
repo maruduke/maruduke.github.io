@@ -60,9 +60,11 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 
 ---
 
+<br>
+
 ## 프로젝트 회고
 
-해당 프로젝트를 진행함으로써 가장 의미있는 경험을 꼽자면 다양한 툴들을 사용하여 협업 방법을 활용했다는 점이라고 생각한다.
+이번 프로젝트를 진행함으로써 가장 의미있는 경험이라하면 협업을 진행하면서 발생하는 문제를 해결하는 방법에 대한 해결 경험이다.
 
 <br>
 <br>
@@ -117,7 +119,9 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 
 ### 4. Github 설정
 
-branch 설계(작성 중....)
+깃허브 기능은 유용하지만 개인이 사용했을 때도 여러번 날려먹은 경험이 있는지라 어떻게 처리를 해야할지 고민이 많았다.  
+<br>
+다행히 같은 팀원 중 팀 프로젝트 경험을 가지신 분이 길을 제시해주셔서 다음과 같은 방법을 적용했다.
 
 <div class="mermaid" style="overflow:scroll;">
 %%{init: { 'logLevel': 'debug', 'theme': 'dark', 'orientation': 'vertical' } }%%
@@ -133,20 +137,20 @@ gitGraph
     checkout dev_front
     branch fe/feat/func2
     checkout fe/feat/func1
-    commit
+    commit id: "프론트 기능 개발"
     checkout fe/feat/func2
-    commit
+    commit id: "프론트 기능 개발2"
     checkout dev_front
     merge fe/feat/func1
     merge fe/feat/func2
     checkout dev_back
     branch be/feat/func1
-    commit
+    commit id: "백엔드 기능 개발"
     checkout dev_back
     merge be/feat/func1
     checkout dev_back
     branch be/fix/fix1
-    commit id: "fix error"
+    commit id: "기능 버그 픽스"
     checkout dev_back
     merge be/fix/fix1
     checkout main
@@ -155,8 +159,64 @@ gitGraph
 
 </div>
 
--   github -> 협업 방식에 대한 이모저모, ...
-    일어난 사고 -> git rollback문제, 실수로 브랜치 머지 안하고 날린거 등, git 최종 머지 때 발생한 문제(main 브랜치를 다른 브랜치로 만들어 발생한 오류 -> 서로 베이스가 달라서 그런지 충돌이 난 문제)
+#### Branch 생성
+
+우선 main 브랜치에서 영역에 따라 2개의 브랜치를 분리하였다.
+
+-   main branch: 프로젝트 종료 시 백엔드, 프론트엔드 Merge
+
+    -   dev-front : 프론트엔드 개발 코드 작성
+    -   dev-back : 백엔드 개발 코드 작성
+
+추가적으로 팀원이 추가적인 기능을 개발하거나 버그를 수정하였을 경우 새로운 브랜치를 특정 명명 규칙을 통해 생성하였다.
+
+-   fe : 프론트 branch
+-   be : 백엔드 branch
+
+    -   feat: 신규 기능 개발
+    -   fix: 버그 픽스
+        -   기능 설명
+
+ex) 프론트 엔드 신규 기능 개발
+
+```git
+$ git branch fe/feat/{신규 기능 이름} dev-front
+
+$ git checkout fe/feat/{신규 기능 이름}
+```
+
+ex2) 백엔드 버그 픽스
+
+```git
+$ git branch be/fix/{신규 기능 이름} dev-back
+
+$ git checkout be/fix/{신규 기능 이름}
+```
+
+#### Pull Request
+
+여러 생성된 브랜치들을 다시 dev_front나 dev_back에 통합하기 위해서는 Pull Request를 요청하도록 했다.
+
+<p align = "center">
+    <img src="/assets/images/project/TheMore/6-6.png" width="80%">
+</p>
+
+상단의 이미지와 같이 여러 Pull Request를 한번에 모아서 Merge를 실행하여 처리 한 후 각자의 Local Branch에 Pull을 받아서 Conflict 발생을 최소화 시켰다. 작업 영역이 겹치지 않는 이상 왠만해서는 Conflict가 발생하지 않았다.
+
+#### 사용 중 발생한 몇가지 문제
+
+미리 정해둔 약속으로 인해 일어날 불상사를 최소화하긴 했지만 그래도 프로젝트를 진행하는 도중에 2~3가지의 문제가 발생하였다.
+
+-   branch를 Pull Request하지 않고 삭제하는 경우
+    -   ~~이건 내가 너무 멍청했다.~~
+-   branch 영역이 Conflict 발생 없이 일부 덮어 씌어 지는 경우
+    -   왜 Conflict가 발생하지 않는지는 모르겠지만 작성한 파일의 일부 데이터가 날아가는 문제가 발생하였다.
+    -   Merge 히스토리를 살펴 비교하면서 삭제된 데이터를 복구하였다.
+-   Main branch 통합 에러
+    -   초기 프로젝트 진행 시 main 브랜치를 다른 곳으로 옮기는 과정에서 dev-front와 dev-back사이의 base가 달라서 문제가 발생한 것 같다.
+    -   Conflict를 일일이 해결하였으나 해결 후에도 유실된 코드가 발생하였다
+    -   rebase를 진행하기에는 마찬가지로 유실의 우려가 존재하였다.
+    -   임시방편으로 모든 파일을 삭제하고 복사/붙여넣기 하는 형식으로 통합 처리하였음
 
 <br>
 <br>
@@ -175,17 +235,19 @@ gitGraph
 
 ### 6. Notion
 
+칸반보드를 작성하여 팀원이 진행 과정을 한눈에 파악할 수 있었다. 이를 통해 업무가 어떻게 진행되는지 완성도가 어느정도되는지 대략적인 일정을 가늠할 수 있었다.
+특히 연계되는 기능이 완성된 경우 빠르게 Merge를 진행하여 개발한 기능을 가져와 연계하였다.
+
 <p align = "center">
     <img src="/assets/images/project/TheMore/6-5.png" width="80%">
 </p>
 
-칸반보드를 작성하여 상대방이 진행 중인 업무가 무엇인지 대략적으로 파악하고 앞으로 해야 할 일 등을 확인하고 진행하였다. 특히 연계되는 기능이 완성된 경우 빠르게 Pull Request를 진행하여 개발한 기능을 가져와 연계하였다.
-
 ---
+
+<br>
 
 ## 프로젝트 후기
 
-<br>
 <br>
 
 ### WebSocket 제한
