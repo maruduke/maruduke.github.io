@@ -105,29 +105,36 @@ branch 설계(작성 중....)
 
 <div class="mermaid">
 %%{init: { 'logLevel': 'debug', 'theme': 'dark' } }%%
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+gitGraph
+    commit id: "init"
+    branch dev_front
+    commit id: "init_front"
+    checkout main
+    branch dev_back
+    commit id: "init_back"
+    checkout dev_front
+    branch fe/feat/func1
+    checkout dev_front
+    branch fe/feat/func2
+    checkout fe/feat/func1
+    commit
+    checkout fe/feat/func2
+    commit
+    checkout dev_front
+    merge fe/feat/func1
+    merge fe/feat/func2
+    checkout dev_back
+    branch be/feat/func1
+    commit
+    checkout dev_back
+    merge be/feat/func1
+    checkout dev_back
+    branch be/fix/fix1
+    commit id: "fix error"
+    checkout dev_back
+    merge be/fix/fix1
+
 </div>
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-```mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'dark' } }%%
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
 
 -   github -> 협업 방식에 대한 이모저모, ...
     일어난 사고 -> git rollback문제, 실수로 브랜치 머지 안하고 날린거 등, git 최종 머지 때 발생한 문제(main 브랜치를 다른 브랜치로 만들어 발생한 오류 -> 서로 베이스가 달라서 그런지 충돌이 난 문제)
