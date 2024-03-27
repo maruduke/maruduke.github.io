@@ -104,7 +104,7 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 branch 설계(작성 중....)
 
 <div class="mermaid">
-%%{init: { 'logLevel': 'debug', 'theme': 'dark' } }%%
+%%{init: { 'logLevel': 'debug', 'theme': 'dark', 'orientation': 'vertical' } }%%
 gitGraph
     commit id: "init"
     branch dev_front
@@ -133,6 +133,9 @@ gitGraph
     commit id: "fix error"
     checkout dev_back
     merge be/fix/fix1
+    checkout main
+    merge dev_front
+    merge dev_back
 
 </div>
 
