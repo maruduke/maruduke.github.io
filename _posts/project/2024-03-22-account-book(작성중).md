@@ -103,7 +103,7 @@ BitCamp 클라우드 개발자 과정 8기 2번째 프로젝트 TheMore이다.
 
 branch 설계(작성 중....)
 
-<div class="mermaid">
+<div class="mermaid" style="overflow:scroll;">
 %%{init: { 'logLevel': 'debug', 'theme': 'dark', 'orientation': 'vertical' } }%%
 gitGraph
     commit id: "init"
