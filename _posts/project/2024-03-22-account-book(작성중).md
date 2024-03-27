@@ -11,6 +11,7 @@ permalink: /project/6
 
 toc: true
 toc_sticky: true
+mermaid: true
 
 date: 2024-03-22
 last_modified_at: 2024-03-22
