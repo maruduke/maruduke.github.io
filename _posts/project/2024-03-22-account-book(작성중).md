@@ -17,6 +17,8 @@ date: 2024-03-22
 last_modified_at: 2024-03-22
 ---
 
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
 ## 가계부 구현 프로젝트
 
 ### 프로젝트 개요
@@ -167,4 +169,7 @@ graph TD;
 -   session키와 마찬가지로 각 지출 내역이나, 수입 내역을 Id값으로 삭제하는데 보안 문제가 발생하지 않을까? 해결법으로 복합키로 어떻게든 구현?
     -   시간 정보로 구별?
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({startOnLoad:true});
+window.mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+</script>
