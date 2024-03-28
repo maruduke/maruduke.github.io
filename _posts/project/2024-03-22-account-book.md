@@ -1,5 +1,5 @@
 ---
-title: '\[Project\] TheMore(가계부) 팀프로젝트 회고록(작성 중)'
+title: '\[Project\] TheMore(가계부) 팀프로젝트 회고록'
 excerpt: 'Java WebSocket을 활용한 가계부 구현'
 
 categories:
