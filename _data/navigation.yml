@@ -22,8 +22,6 @@ categories:
       children:
           - title: 'basic'
             url: /categories/spring_Basic/
-          - title: 'WebSocket'
-            url: /categories/WebSocket/
           - title: 'MSA'
             url: /categories/MSA/
           - title: 'Kafka'
