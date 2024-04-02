@@ -34,8 +34,10 @@ categories:
 
     - title: 'Collaboration Tools'
 
-    - title: 'Naver Cloud'
-      url: /categories/NaverCloud/
+    - title: 'CloudService'
+      children:
+          - title: 'Naver Cloud'
+            url: /categories/NaverCloud/
 
     - title: 'Project'
       url: /categories/Project/
