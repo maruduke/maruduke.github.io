@@ -34,7 +34,7 @@ categories:
 
     - title: 'Collaboration Tools'
 
-    - title: 'CloudService'
+    - title: 'Cloud Computing'
       children:
           - title: 'Naver Cloud'
             url: /categories/NaverCloud/
