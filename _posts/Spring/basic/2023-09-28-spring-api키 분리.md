@@ -3,11 +3,11 @@ title: '\[Spring\] Api키 분리 보관하기'
 excerpt: '키 분리를 통한 보안성 강화'
 
 categories:
-    - 'basic'
+    - 'Spring_Basic'
 tags:
     - [Spring, basic, Git]
 
-permalink: /basic/1
+permalink: /spring_Basic/1
 
 toc: true
 toc_sticky: true
