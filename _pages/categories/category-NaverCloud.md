@@ -1,9 +1,9 @@
 ---
-title: 'NaverCloud'
+title: 'Naver Cloud'
 layout: category
 permalink: /categories/NaverCloud/
 author_profile: true
-taxonomy: NaverCloud
+taxonomy: Naver Cloud
 sidebar:
     nav: 'categories'
 ---
