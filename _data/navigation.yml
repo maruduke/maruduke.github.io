@@ -21,7 +21,7 @@ categories:
     - title: 'Spring'
       children:
           - title: 'Spring_Basic'
-            url: /categories/spring_Basic/
+            url: /categories/Spring_Basic/
           - title: 'MSA'
             url: /categories/MSA/
           - title: 'Kafka'

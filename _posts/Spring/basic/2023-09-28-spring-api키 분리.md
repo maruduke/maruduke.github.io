@@ -7,7 +7,7 @@ categories:
 tags:
     - [Spring, basic, Git]
 
-permalink: /spring_Basic/1
+permalink: /Spring_Basic/1
 
 toc: true
 toc_sticky: true
