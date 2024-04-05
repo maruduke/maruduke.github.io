@@ -1,6 +1,6 @@
 ---
 
-title: 'Spring, Git에서 Api키 분리, 보관하기'
+title: 'Spring\, Git에서 Api키 분리 보관하기'
 excerpt: '키 분리를 통한 보안성 강화'
 
 categories: - basic
