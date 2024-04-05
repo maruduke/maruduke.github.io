@@ -1,6 +1,6 @@
 ---
 
-title: 'Spring\, Git에서 Api키 분리 보관하기'
+title: '[Spring] Git에서 Api키 분리 보관하기'
 excerpt: '키 분리를 통한 보안성 강화'
 
 categories: - basic
@@ -50,7 +50,7 @@ spring:
 
 마지막으로 git에 해당 파일이 push되지 않도록 .gitignore파일에 추가하면 된다.
 
-```java
+```gitignore
 ### api-key ###
 src/main/resources/application-API-KEY.properties
 ```
