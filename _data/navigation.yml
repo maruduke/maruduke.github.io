@@ -36,7 +36,7 @@ categories:
 
     - title: 'Cloud Computing'
       children:
-          - title: 'Naver Cloud'
+          - title: 'Naver Cloud Platform'
             url: /categories/NaverCloud/
 
     - title: 'Project'
