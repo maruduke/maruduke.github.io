@@ -1,19 +1,19 @@
 ---
-
-title: '[Spring] Api키 분리 보관하기'
+title: '\[Spring\] Api키 분리 보관하기'
 excerpt: '키 분리를 통한 보안성 강화'
 
-categories: - basic
-tags: - [Spring, basic, Git]
+categories:
+    - 'basic'
+tags:
+    - [Spring, basic, Git]
 
 permalink: /basic/1
 
 toc: true
 toc_sticky: true
 
-date: 2023-09-28
-last_modified_at: 2023-09-28
-
+date: 2024-04-05
+last_modified_at: 2024-04-05
 ---
 
 Spring boot로 개발하는 도중, 수시로 갱신되는 api키의 경우 변경될 경우 위치를 찾아 일일이 수정하기 귀찮다는 문제, AWS와 같이 요금을 지불하는 API키를 git에 공개적으로 올려놓을 경우 문제가 발생할 수 있기 때문에 관리하기 편하도록 한곳에 모아두면서 숨겨둘 필요성을 느꼈다.
@@ -50,7 +50,7 @@ spring:
 
 마지막으로 git에 해당 파일이 push되지 않도록 .gitignore파일에 추가하면 된다.
 
-```gitignore
+```properties
 ### api-key ###
 src/main/resources/application-API-KEY.properties
 ```
