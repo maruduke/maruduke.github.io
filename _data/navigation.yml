@@ -20,7 +20,7 @@ main:
 categories:
     - title: 'Spring'
       children:
-          - title: 'basic'
+          - title: 'Spring_Basic'
             url: /categories/spring_Basic/
           - title: 'MSA'
             url: /categories/MSA/
