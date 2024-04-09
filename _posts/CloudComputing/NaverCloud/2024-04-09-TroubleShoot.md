@@ -1,5 +1,5 @@
 ---
-title: '\[NCP\] 4. TroubleShooting'
+title: '\[NCP\] 5. TroubleShooting'
 excerpt: '대표적인 트러블 슈팅 사례'
 
 categories:
