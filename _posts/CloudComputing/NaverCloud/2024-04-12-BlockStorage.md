@@ -1,6 +1,6 @@
 ---
 title: '\[NCP 실습\] Block Storage 추가'
-excerpt: 'Server 생성'
+excerpt: 'Block Storage 생성 및 설정'
 
 categories:
     - 'Naver Cloud Platform'
@@ -12,8 +12,8 @@ permalink: /NaverCloud/ex/4
 toc: true
 toc_sticky: true
 
-date: 2024-04-10
-last_modified_at: 2024-04-10
+date: 2024-04-12
+last_modified_at: 2024-04-12
 ---
 
 ## Block Storage
