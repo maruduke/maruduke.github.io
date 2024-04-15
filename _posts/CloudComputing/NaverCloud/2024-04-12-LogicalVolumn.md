@@ -1,6 +1,6 @@
 ---
 title: '\[NCP 실습\] Logical Volumn'
-excerpt: 'Server 생성'
+excerpt: 'Logical Volumn 생성 및 분배'
 
 categories:
     - 'Naver Cloud Platform'
@@ -12,11 +12,15 @@ permalink: /NaverCloud/ex/5
 toc: true
 toc_sticky: true
 
-date: 2024-04-10
-last_modified_at: 2024-04-10
+date: 2024-04-12
+last_modified_at: 2024-04-12
 ---
 
 ## Logical Volumn
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-1.png" width="90%">
+</p>
 
 -   LVM(Logical Volumn Manager)을 이용하여 물리적인 디스크의 공간을 논리적으로 합치거나 나눔
 
@@ -31,15 +35,21 @@ last_modified_at: 2024-04-10
 
 ### HDD에 파티션 생성
 
-이미지
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-2.png" width="90%">
+</p>
 
--> 여기까지는 기존의 파티션 생성과 같으나 추가적으로 설정이 필요
+-> 여기까지는 이전의 파티션 생성과 같으나 추가적으로 설정이 필요
 
 ```bash
 $ t # 파티션 타입 변경
 $ 8e # Linux LVM
 $ w # 파티션 테이블 저장, 다른 디스크에도 똑같이 작업
 ```
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-3.png" width="90%">
+</p>
 
 ## PV(Physical Volumn)
 
@@ -57,6 +67,10 @@ $ pvscan # 각 파티션 별로 생성된 pv 확인
 $ pvdisplay # pv에 대한 세부 정보 출력
 ```
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-4.png" width="90%">
+</p>
+
 ## VG(Volumn Group)
 
 PV를 묶어 만든 논리적인 그룹
@@ -69,6 +83,10 @@ $ vgcreate lvmVG /dev/xvdc1 /dev/xvdd1
 
 $ vgdisplay
 ```
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-5.png" width="90%">
+</p>
 
 ## LV(Logical Volumn)
 
@@ -84,6 +102,10 @@ $ lvcreate --extents 100%FREE -n lvmLV2 lvmVG
 
 $ lvdisplay
 ```
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-6.png" width="90%">
+</p>
 
 ### LV에 파일 시스템 생성
 
@@ -104,3 +126,11 @@ $ mount /dev/lvmVG/lvmLV2 /mnt/lvm2
 $ df -h
 $ lsblk
 ```
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-7.png" width="90%">
+</p>
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex5-8.png" width="90%">
+</p>
