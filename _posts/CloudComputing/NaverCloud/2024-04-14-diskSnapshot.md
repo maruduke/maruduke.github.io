@@ -28,6 +28,8 @@ last_modified_at: 2024-04-14
 
 ### snapshot 생성 준비과제
 
+해당 과정을 직접 한번 연습용으로 생성해 보아라
+
 1. 스냅샷 생성을 위한 디스크 생성
 
 스토리지 이름: server1-disk4
@@ -50,7 +52,11 @@ xvde2: ext4
 xvde1: /mnt/part3
 xvde2: /mnt/part4
 
-5. 각 디렉토리에 다음과 같은 텍스트 파일 생성
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-1.png" width="90%">
+</p>
+
+5. 각 디렉토리에 다음과 같은 텍스트 파일 생성(스냅샷 확인용 파일)
 
 /mnt/part3/snaptest: snapshot test for xfs
 /mnt/part4/snaptest: snapshot test for ext4
@@ -69,22 +75,55 @@ snapshot test for ext4
 
 server - Storage - server1-disk4 선택 - 스토리지 설정 - 스냅샷 생성
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-2.png" width="90%">
+</p>
+
+스냅 샷 유형, 스냅 샷 이름 설정
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-3.png" width="90%">
+</p>
+
+스냅 샷 생성 성공 확인
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-4.png" width="90%">
+</p>
+
 ### snapshot을 이용한 Block Storage 생성
+
+다음은 snapshot 이미지를 통해 새로운 스토리지를 생성하는 과정이다.
 
 -   server -> storage -> 스토리지 생성
 
-이미지 스냅샷 설정
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-5.png" width="90%">
+</p>
 
-lsblk -f 이미지
+테스트용 disk 생성과 동일하게(이름 제외) 설정하여 생성
+
+생성된 Storage를 서버에서 확인한 결과는 다음과 같다.
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-6.png" width="90%">
+</p>
+
 스냅샷으로 생성한 스토리지 정보는 파티션 파일 시스템 종류 및 UUID가 기존 스토리지와 동일하다.
 
-스냅 샷 마운트
+스냅 샷 마운트하기
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-7.png" width="90%">
+</p>
 
 1. xfs 파일 시스템 마운트 시 오류 발생
 2. ext4 파일 시스템의 마운트는 정상작동
 3. xvdf2 (ext4) 파티션만 마운트
 
 ### XFS 마운트 오류 원인 확인
+
+리눅스 커널 메시지를 확인하여 에러 원인 체크하기
 
 ```bash
 # 리눅스 커널 메시지 출력
@@ -93,7 +132,11 @@ $ dmesg | tail
 
 원인: xvdf1의 파일 시스템 UUID가 중복됨(xvde1 과 동일) UUID 변경 필요
 
-해결법
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-8.png" width="90%">
+</p>
+
+해결법: 새로운 UUID를 생성하여 디스크에 부여한다.
 
 ```bash
 # UUID 생성
@@ -113,5 +156,13 @@ $ mount /dev/xvdf1 /mnt/part5
 
 $ cat /mnt/part5/snaptest
 ```
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-9.png" width="90%">
+</p>
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-10.png" width="90%">
+</p>
 
 마운트 된 파일 시스템에 내용을 비교하면 동일한 파일이 복사됨을 확인할 수 있음
