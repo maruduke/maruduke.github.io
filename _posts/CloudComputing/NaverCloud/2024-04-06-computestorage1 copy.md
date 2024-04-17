@@ -44,7 +44,7 @@ last_modified_at: 2024-04-06
 -   Network
     -   Physical 10Gbps
     -   Logical 1Gbps
-    -   실제로는 500Mbps ~ 1Gbps 제공
+    -   실제로는 500Mbps ~ 1Gbps 제공(Rx + TX)
 
 ### 서버 타입
 

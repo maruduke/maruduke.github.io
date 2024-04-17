@@ -7,13 +7,13 @@ categories:
 tags:
     - [NCP, Cloud]
 
-permalink: /NaverCloud/ex/9
+permalink: /NaverCloud/ex/10
 
 toc: true
 toc_sticky: true
 
-date: 2024-04-16
-last_modified_at: 2024-04-16
+date: 2024-04-17
+last_modified_at: 2024-04-17
 ---
 
 ## Object Storage 기본 개념
