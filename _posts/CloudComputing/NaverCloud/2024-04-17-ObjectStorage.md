@@ -1,13 +1,13 @@
 ---
-title: '\[NCP 실습\] 오브젝트 스토리지'
-excerpt: 'Server image 생성과 유서 Server 생성'
+title: '\[NCP 실습\] Object Storage'
+excerpt: 'Object Storage의 개념과 실습'
 
 categories:
     - 'Naver Cloud Platform'
 tags:
     - [NCP, Cloud]
 
-permalink: /NaverCloud/ex/10
+permalink: /NaverCloud/ex/9
 
 toc: true
 toc_sticky: true
@@ -59,30 +59,137 @@ last_modified_at: 2024-04-17
 
 ## 웹 콘솔 실습
 
-이용신청
+### Object Storage 이용 신청
 
-bucket 생성
+-   Services - Storage - Object Storage 클릭
 
-버킷 이름은 리전 내 고유한 이름을 입력해야함
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-1.png" width="90%">
+</p>
 
-버킷 폴더 생성
+Object Storage 이용신청 클릭
 
-파일 업로드
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-2.png" width="90%">
+</p>
 
+### 각종 파일을 저장할 저장소인 bucket 생성
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-3.png" width="90%">
+</p>
+
+버킷의 이름은 리전 내에서 고유한 이름을 입력해야함
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-4.png" width="90%">
+</p>
+
+설정 관리는 Default 값 적용
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-5.png" width="90%">
+</p>
+
+권한 관리에서 버킷에 대한 이용 권한은 공개 안함을 선택
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-6.png" width="90%">
+</p>
+
+최종 결과 확인 후 이상 없을 시 버킷 생성
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-7.png" width="90%">
+</p>
+
+### 버킷 폴더 생성
+
+생성된 버킷 오른쪽에 동그라미 버튼 열을 클릭하여 새 폴더 선택
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-8.png" width="90%">
+</p>
+
+새로 생성할 폴더 이름을 입력
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-9.png" width="90%">
+</p>
+
+### 파일 업로드
+
+파일을 선택하고 파일 올리기 클릭
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-10.png" width="90%">
+</p>
+
+파일을 드래그 앤 드롭 또는 파일 탐색기를 통하여 파일 업로드
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-11.png" width="90%">
+</p>
+
+올린 파일을 확인하고 전송 시작 버튼을 클릭하여 업로드
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-12.png" width="90%">
+</p>
+
+확인 결과 파일이 정상적으로 업로드 되었다.
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-13.png" width="90%">
+</p>
+
+파일을 삭제하고 싶다면 다음과 같은 과정으로 삭제가 가능하다.
 파일 폴더 선택 -> 편집 -> 삭제하기
 
 ## API 인증키 생성
 
+Object Storage를 외부에서 접근하기 위해서는 인증키를 발급받아 인증을 받을 필요가 있다. 인증키를 발급 받는 방법은 다음과 같다.
+
 네이버 클라우드 플랫폼 메인 포탈에 들어가서 인증키 생성
+
+메인포탈 - 마이페이지 - 인증키 관리
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-14.png" width="90%">
+</p>
+
+인증키 생성 클릭
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-15.png" width="90%">
+</p>
 
 ## S3 Browser 활용
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-16.png" width="90%">
+</p>
+
+S3 Browser는 Amazon Web Services에서 제공하는 개체 스토리지 서비스인 Amazon S3를 사용자 인터페이스를 제공하여 Windows 탐색기와 유사한 방식으로 S3계정에서 파일을 관리할 수 있는 Amazon S3용 Windows 클라이언트이다.
+
+Naver Cloud Platform의 Object Storage는 S3 Browser와 호환 가능하다.
+
 ### Account 생성
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-17.png" width="90%">
+</p>
 
 Display name: ncp 계정 아이디 입력
 Account Type: S3 Compatible Storage 선택
 REST Endpoint: kr.object.ncloudstorage.com 입력
 Access Key ID/ Secret Access Key: API 인증키 내용 입력
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-18.png" width="90%">
+</p>
+
+연결이 성공적으로 이루어졌으면 다음과 bucket 파일을 확인할 수 있다.
 
 ### S3 Browser bucket 생성
 
