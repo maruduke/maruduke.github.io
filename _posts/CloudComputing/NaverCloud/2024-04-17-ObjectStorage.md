@@ -172,7 +172,7 @@ Object Storage를 외부에서 접근하기 위해서는 인증키를 발급받�
 
 S3 Browser는 Amazon Web Services에서 제공하는 개체 스토리지 서비스인 Amazon S3를 사용자 인터페이스를 제공하여 Windows 탐색기와 유사한 방식으로 S3계정에서 파일을 관리할 수 있는 Amazon S3용 Windows 클라이언트이다.
 
-Naver Cloud Platform의 Object Storage는 S3 Browser와 호환 가능하다.
+Naver Cloud Platform의 Object Storage는 S3 Browser와 호환이 가능하다.
 
 ### Account 생성
 
@@ -193,18 +193,56 @@ Access Key ID/ Secret Access Key: API 인증키 내용 입력
 
 ### S3 Browser bucket 생성
 
+상단 메뉴창에서 Buckets -> Create New Bucket... 선택
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-19.png" width="90%">
+</p>
+
+Bucket 이름과 Region 지정
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-20.png" width="90%">
+</p>
+
 ### 파일 업로드
+
+Bucket 창에서 Upload 버튼 클릭
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-21.png" width="90%">
+</p>
+
+또는 메뉴창에 Files -> Upload file 클릭
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-22.png" width="90%">
+</p>
+
+나타난 메뉴 창에 데이터 전송
 
 ### 다운로드
 
 다운로드 받고자 하는 파일 선택 -> 다운로드
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-23.png" width="90%">
+</p>
+
 ## API 예제
 
-스토리지 이용에 필요한 AWS S3 호환 API 제공
+스토리지 이용에 필요한 AWS S3 호환 API 제공  
 https://api.ncloud-docs.com/docs/storage-objectstorage
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-24.png" width="90%">
+</p>
+
 HTTP 요청을 통해 버킷 및 파일 사용 가능
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-25.png" width="90%">
+</p>
 
 -   인증 헤더 생성을 위한 별도 코드 필요
 -   AWS에서 제공하는 API 사용하는게 편리
@@ -213,8 +251,8 @@ HTTP 요청을 통해 버킷 및 파일 사용 가능
 
 https://api.ncloud-docs.com/docs/common-objectstorageapi-objectstorageapi
 
-self.\_sign(...): 인증 헤더를 생성하는 메소드 호출 -> 메소드 내부에서 인증 헤더를 생성하는 로직 수행
-request.get(...): HTTP GET 요청 수행
+-   self.\\\_sign(...): 인증 헤더를 생성하는 메소드 호출 -> 메소드 내부에서 인증 헤더를 생성하는 로직 수행
+-   request.get(...): HTTP GET 요청 수행
 
 ### 예제 실습
 
@@ -224,17 +262,29 @@ python 예제 코드 복사 붙여넣기
 
 ObjectStorageSample 클래스의 access_key, secret_key 변수 값을 `API 인증키 생성`에서 확인한 값으로 변경
 
-기존 소스 코드 상의 메소드 호출 부분을 주석 처리
-현재 사용중인 버킷의 오브젝트 목록을 출력하도록 메소드 호출 추가
-
-```python
-sample.list_objects('버킷이름문자열')
-```
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-26.png" width="90%">
+</p>
 
 코드를 실행
 
 출력 확인 : 정상작동시 Response code: 200 출력
 Response content 부분을 API 문서의 내용과 비교해 봐라
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-28.png" width="90%">
+</p>
+
+기존 소스 코드 상의 메소드 호출 부분을 주석 처리
+현재 사용중인 버킷의 오브젝트 목록을 출력하도록 메소드 호출 추가
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-27.png" width="90%">
+</p>
+
+```python
+sample.list_objects('버킷이름문자열')
+```
 
 ### S3 API 호출 예제
 
@@ -246,15 +296,31 @@ python 예제 중 버킷 목록 조회 코드 복사
 
 python용 AWS SDK 설치 : 코드 셀에 !pip install boto3 입력 후 실행
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-29.png" width="90%">
+</p>
+
 앞서 복사한 코드(버킷 목록 조회) 붙여넣기
 access_key, secret_key 수정
 print(bucket.get('Name'))로 수정
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-30.png" width="90%">
+</p>
+
 Ctrl + Enter로 코드 셀 실행하고 출력 확인(현재 생성된 버킷 목록)
 
 ## 버킷 접근 제어
 
-bucket management에서
-버킷 정보 누르기
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-31.png" width="90%">
+</p>
+
+bucket management에서 버킷 정보 누르기
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-32.png" width="90%">
+</p>
 
 -   이벤트 관리: 버킷에서 이벤트 발생 시 알림(Cloud Functions 연동 시) 객체 생성, 복사 , 삭제 등
 -   접근 제어: 같은 리전의 특정 서버만 버킷에 접근할 수 있도록 설정 가능(VPC 환경에서 사용)
@@ -264,28 +330,57 @@ bucket management에서
 
 ### 버킷 접근 제어 설정
 
+버킷 선택 후 접근 제어 클릭
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-33.png" width="90%">
+</p>
+
 접근 제어 설정 On
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-34.png" width="90%">
+</p>
+
 linux-server1만 버킷에 접근 가능(다른 외부 접근 불가)
 
-Object Storage API 예제 코드 재 실행
-403 에러 (접근 거부) 발생
+Object Storage API 예제 코드 재 실행 시 403 에러 (접근 거부) 발생  
 linux-server1 이외에 외부 접근 불가 확인
 
-접근 제어 설정 다시 off
+테스트가 끝났다면 접근 제어 설정 다음 실습을 위해 다시 off로 설정한다
 
 ## 버킷 권한 관리
 
 ### 객체 목록 공개
 
--   공개 관리 - 전체 공개 - 공개 -> 버킷의 폴더/파일 목록을 누구나 볼 수 있음
--   `참고` 다른 계정 권한 추가 -> 추가된 계정은 API 인증키를 가지고 API를 통해 버킷 이용 가능
+권한 관리 버튼 클릭
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-35.png" width="90%">
+</p>
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-36.png" width="90%">
+</p>
+
+-   공개 관리 - 전체 공개 - 공개 -> 버킷의 폴더/파일 목록을 누구나 볼 수 있음
+-   다른 계정 권한 추가를 선택할 경우 추가된 계정의<mark> API 인증키를 가지고 API를 통해 버킷 이용 가능</mark>
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-37.png" width="90%">
+</p>
 별도의 웹 브라우저 주소창에 버킷 url 입력
 https://kr.object.ncloudstorage.com/{버킷명}
 
 버킷의 폴더 및 파일 목록용 xml로 출력 확인
 
+### 비공개 설정
+
 공개 관리 - 전체 공개 - 공개 안함
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-38.png" width="90%">
+</p>
 
 버킷의 폴더 및 파일 목록에 대한 접근 거부 확인
 
@@ -293,9 +388,17 @@ https://kr.object.ncloudstorage.com/{버킷명}
 
 폴더 선택 -> 편집 -> 폴더/파일 공개하기
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-39.png" width="90%">
+</p>
+
 선택한 폴더/파일 공개 - 파일 - 외부에서 누구나 선택 파일 다운로드 가능 - 폴더 - 외부에서 누구나 선택 폴더 내의 모든 파일 다운로드 가능
 
 공개된 폴더 내의 파일 선택
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex9-40.png" width="90%">
+</p>
 
 파일의 링크 주소 복사
 
