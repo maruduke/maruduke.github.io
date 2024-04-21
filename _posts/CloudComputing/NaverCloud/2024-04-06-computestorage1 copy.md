@@ -309,3 +309,45 @@ last_modified_at: 2024-04-06
 | 속성           | 맵핑 정보 변경 불가 | 맵핑 정보 변경 가능 |
 | 의존성         | 의존성 없음         | VPC에 의존          |
 | Rule 속성      | Inbound             | in/out bound        |
+
+## Private Subnet & Network Interface Operation
+
+-   네이버 클라우드 플랫폼의 서버 네트워크 특징
+    -   서버 생성 시, 초기에 Network Interface는 하나가 생성됨
+    -   IP Allas 허용하지 않음
+    -   추가 NIC 허용하지 않음
+-   다양한 환경
+    -   HA 구성이 필요한 경우 VIP가 필요
+    -   VPN으로 연결하는 경우 Peer 네트워크는 대역폭으로 선언
+-   네이버 클라우드 플랫폼의 방안
+    -   새로운 NIC를 생성할 수 있게 하되 해당 NIC들 만의 네트워크를 구성
+    -   해당 네트워크는 192.168.X.0/24 대역을 생성할 수 있도록 Private Subnet 기능 제공
+
+### private Subnet
+
+-   192.168.X.0/24 대역만 사용 가능
+-   각 존 당 하나의 private subnet을 만들 수 있다.
+-   ACG가 적용되지 않음
+
+-   사용 방법
+
+    -   Private Subnet에서 대역 설정
+    -   Network Interface에서 서버에 해당 대역을 IP 할당(Network interface에서 설정을 해야 NIC 추가가 가능)
+
+-   VPC 플랫폼에서의 서버 네트워크 구성
+    -   서버 생성 시, 최대 3개의 Network Interface 생성이 가능
+    -   각 NIC에는 Secondary IP 부여 가능
+    -   하나의 Network Interface에는 최대 5개까지의 Secondary IP를 추가할 수 있음
+        -   하나의 NIC가 가질 수 있는 IP의 개수는 최대 6개(Primary IP 1개, Secondary IP 5개)
+        -   멀티 IP 이용을 위해선 부가적인 network script 작성 및 적용 필요
+
+### Secure Zone
+
+-   금융 정보, 개인 정보와 같이 격리되어야 하고 모니터링 되어야 하는 서버를 위치시키기 위한 존
+
+-   특징
+    -   인터넷 통신 불가
+    -   네이버 클라우드 플랫폼 내부의 허용된 서버와의 통신만 가능
+    -   Secure Zone은 망 방화벽을 통해 Secure Zone 내의 서버를 외부로부터 보호
+    -   방화벽은 Inbound뿐만 아니라 Outbound 트래픽까지 제어
+    -   로그 저장 가능
