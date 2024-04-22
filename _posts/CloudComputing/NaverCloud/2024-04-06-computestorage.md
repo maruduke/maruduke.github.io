@@ -16,6 +16,8 @@ date: 2024-04-06
 last_modified_at: 2024-04-06
 ---
 
+{% include_relative agenda.md %}
+
 ## Compute Service
 
 -   cpu

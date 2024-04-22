@@ -1,5 +1,5 @@
 ---
-title: '\[NCP 실습\] Docker Registry'
+title: '\[NCP 실습\] 쿠버네티스'
 excerpt: ''
 
 categories:

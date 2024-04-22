@@ -1,5 +1,5 @@
 ---
-title: '\[NCP\] 5. TroubleShooting'
+title: '\[NCP\] 7. TroubleShooting'
 excerpt: '대표적인 트러블 슈팅 사례'
 
 categories:
@@ -15,5 +15,7 @@ toc_sticky: true
 date: 2024-04-08
 last_modified_at: 2024-04-08
 ---
+
+{% include_relative agenda.md %}
 
 ## TroubleShooting

@@ -1,5 +1,5 @@
 ---
-title: '\[NCP\] 2. Kubernetes'
+title: '\[NCP\] 4. Kubernetes'
 excerpt: '가상화 기술과 네이버 클라우드 플랫폼 Compute 서비스'
 
 categories:
@@ -15,6 +15,8 @@ toc_sticky: true
 date: 2024-04-06
 last_modified_at: 2024-04-06
 ---
+
+{% include_relative agenda.md %}
 
 ## Kubernetes Service
 
