@@ -16,15 +16,18 @@ date: 2024-04-19
 last_modified_at: 2024-04-19
 ---
 
-## Private Subnet 생성
+## Subnet 설정
 
-internet gateway = private 설정
+### Load balancer를 위한 private subnet 생성
 
-## Load balancer를 위한 private subnet 생성
+<p align = "center">
+    <img src="/assets/images/NCP/ex11-2.png" width="90%">
+</p>
 
----
+쿠버네티스 서비스를 사용하기 위해서는 Load Balancer를 활용하여 접근 할 수 있으므로 Load Balancer용 private subnet을 생성한다.
+-> 쿠버네티스 실습쪽으로 이동?
 
-## 서버 설정
+## 테스트 서버 설정
 
 ### 쿠버네티스 서비스 설치
 
@@ -65,54 +68,4 @@ $ sudo chmod 644 /etc/apt/sources.list.d/kubernetes.list
 $ sudo apt-get update
 
 $ sudo apt-get install -y kubectl
-```
-
-### Docker 설치
-
-1. 필요한 패키지 설치
-
-```bash
-$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-```
-
-2. 도커의 공식 GPG키 추가
-
-```bash
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-```
-
-3. 도커의 공식 apt 저장소를 추가 및 저장소 업데이트
-
-```bash
-$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-
-$ sudo apt-get update
-
-```
-
-4. 도커 설치
-
-```bash
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
-```
-
----
-
-## Object Storage 생성
-
-Services - Storage - Object Storage
-
-버킷 생성
-
-## Container Registry 생성
-
-## Dockerfile 생성
-
-설정한 서버에 Docker file 생성
-
-도커파일 이미지 빌드
-
-```bash
-$ docker build -t image_apache .
-
 ```

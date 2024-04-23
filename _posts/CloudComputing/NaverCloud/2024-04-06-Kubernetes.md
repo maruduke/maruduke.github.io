@@ -20,6 +20,10 @@ last_modified_at: 2024-04-06
 
 ## Kubernetes Service
 
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-1.png" width="90%">
+</p>
+
 -   완전 관리형 Kubernetes Cluster 제공
     -   Container의 배포, 운영, 확장을 자동화하기 위한 플랫폼
     -   컨트롤 패널의 설치, 운영에 대한 고민 없이, 사용자는 Container가 구동되는 Worker Node에 대한 관리만 하면 됨
@@ -65,10 +69,15 @@ last_modified_at: 2024-04-06
 -   클러스터의 Service CIDR 중에서 지정된 IP로 생성 가능
 -   서비스 이름은 클러스터 내 고유한 DNS로 동작
 
-Service Type에는 어떤 것들이 있는가?
-이미지
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-2.png" width="90%">
+</p>
 
 ### Ingress
+
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-3.png" width="90%">
+</p>
 
 -   외부에서 오는 Traffic들을 클러스터 내부의 Service로 라우팅하기 위한 `규칙 집합`
 -   Ingress에 대한 Service 타입 지정은 `외부 Traffic수신을 위해, NodePort 혹은 LoadBalancer 지정 필요`
@@ -78,7 +87,9 @@ Service Type에는 어떤 것들이 있는가?
 
 ### 서비스 소개
 
-이미지
+<p align = "center">
+    <img src="/assets/images/NCP/ex7-4.png" width="90%">
+</p>
 
 Kubernetes Control Plane에 대한 설치, 운영, 유지관리 필요 없이 쉽게 Cluster 구성 가능
 클러스터 생성 시 별도의 설치 필요 없이 자동으로 설치되며, Dashboard 접속을 통해 모니터링 수행
