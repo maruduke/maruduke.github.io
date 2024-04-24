@@ -25,7 +25,6 @@ last_modified_at: 2024-04-19
 </p>
 
 쿠버네티스 서비스를 사용하기 위해서는 Load Balancer를 활용하여 접근 할 수 있으므로 Load Balancer용 private subnet을 생성한다.
--> 쿠버네티스 실습쪽으로 이동?
 
 ## 테스트 서버 설정
 
@@ -69,3 +68,5 @@ $ sudo apt-get update
 
 $ sudo apt-get install -y kubectl
 ```
+
+## 쿠버네티스 서비스 구현
