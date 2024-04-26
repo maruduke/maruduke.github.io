@@ -16,32 +16,22 @@ date: 2024-04-19
 last_modified_at: 2024-04-19
 ---
 
-## DB 생성
+## Cloud Insight
 
-Services - Database - Cloud DB for Redis
+메일 주소와 SNS를 이용하여 특정 상태에 진입하였을 경우 메시지나 메일 등을 날림
 
-### Config Group 생성
+해당 메시지나 메일들을 날릴 사용자의 연락처나 메일 주소를 입력하는 작업이 필요
 
--   Service - Database - Cloud DB for Redis - Config Group
+## Sub Account
 
-version 설정 잘해야 한다.
+사용자 연락 주소를 입력하는 서비스
 
-### subnet 생성
+-   Services - Management & Governance - Sub Account - Dashboard
 
-redis는 private subnet을 생성해야 가능
+접속 페이지 설정
 
-### redis 생성
+-   Services - Management & Governance - Sub Account - Sub Account
 
-추가적으로 backup 설정을 추가
+서브 계정 생성 클릭
 
-### ACG 접근 제어 풀기
-
-Services - Server - ACG
-
-자동 생성된 ACG 설정
-
-Inbound 규칙만 설정
-
-### 서버 접속 정보 확인
-
-### 연결 확인
+서브 계정 정보 입력
