@@ -81,7 +81,7 @@ server1-img 선택 -> 서버 생성
 원본 서버
 
 <p align = "center">
-    <img src="/assets/imaes/NCP/ex8-6.png" width="90%">
+    <img src="/assets/images/NCP/ex8-6.png" width="90%">
 </p>
 
 복제 서버
