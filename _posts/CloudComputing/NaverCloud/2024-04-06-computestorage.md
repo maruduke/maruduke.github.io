@@ -39,7 +39,7 @@ last_modified_at: 2024-04-06
 
 -   HDD
 
-    -   OS 영역이 기본 할당(리눅스 50GB or 윈도우 100GB 기본)
+    -   OS 영역이 기본 할당<mark>(리눅스 50GB or 윈도우 100GB 기본)</mark>
     -   OS 영역은 용량 확장이나 축소 불가
     -   SSD 타입과 HDD 타입으로 구분
 
@@ -48,7 +48,7 @@ last_modified_at: 2024-04-06
 -   GPU
 
     -   GPU 카드 단위로 할당(GPU Core 단위로 할당하지 않음)
-    -   Pass Through 방식으로 제공
+    -   `Pass Through 방식으로 제공(Grid X)`
     -   최대 2장까지 제공
 
 <br>
@@ -66,6 +66,8 @@ last_modified_at: 2024-04-06
 | Standard(4배수)    | CentOS, Ubuntu, Windows | 2~16vCPU, 4G ~ 32G RAM  |
 | High Memory(8배수) | CentOS, Ubuntu, Windows | 8~32vCPU, 64 ~ 256G RAM |
 | High CPU(2배수)    | CentOS, Ubuntu, Windows | 2~32vCPU, 4 ~ 64G RAM   |
+
+<br>
 
 -   마이크로 서버
     -   회원 가입 후 결제 정보를 등록한 월부터 1년간 무료로 사용 가능
@@ -187,7 +189,7 @@ last_modified_at: 2024-04-06
     -   동일한 서버 타입에 한하여 CPU, Memory 스펙 변경 가능
     -   반드시 `정지된 상태에서 변경`
     -   다른 서버 타입으로 변경하고자 할 경우 `내 서버 이미지를 생성하여 해당 이미지로 다른 타입의 서버 생성`
-    -   ex) High CPU(2core 4GB) -> High CPU(8core 16GB) 스펙 변경 이미지 생성 없이 바로 가능
+    -   ex) High CPU(2core 4GB) -> High CPU(8core 16GB) 스펙 변경 시 이미지 생성 없이 바로 가능
     -   ex) High CPU -> High Memory 타입으로 변경 시 내 서버 이미지 생성이 필요
 
 <br>
@@ -195,7 +197,7 @@ last_modified_at: 2024-04-06
 -   내 서버 이미지 생성
 
     -   서버의 현재 상태 이미지로 생성
-    -   이미지 생성시 반드시 정지된 상태에서 변경
+    -   이미지 생성은 서버가 정지, 운영 중일 때 가능
     -   타 리전에 서버 생성시에는 먼저 대상 리전으로 복제
 
 <br>
@@ -209,10 +211,10 @@ last_modified_at: 2024-04-06
 
 -   스토리지 생성
 
-    -   OS영역 50GB에 추가적으로 디스크 생성시 사용
+    -   OS영역 기본 50GB에 추가적으로 디스크 생성해서 사용
     -   최소 10GB에서 최대 2TB까지 디스크 생성 가능
     -   최대 15개 디스크 추가 가능
-    -   생성된 스토리지는 용량 증설 가능(증설만 가능 감축은 불가)
+    -   생성된 스토리지는 용량 증설 가능(증설만 가능, 감축은 불가)
 
 <br>
 
@@ -220,7 +222,9 @@ last_modified_at: 2024-04-06
 
     -   스토리지에 대해 용량 증설 가능
     -   용량 증설은 서버 정지 혹은 연결 해제 후 가능
-    -   용량 증설 후 데이터 삭제 없이 해당 공간을 사용하기 위해서는 볼륨 관리 툴을 이용해야 함`(Linux: growpart, Window: diskmanagement)`
+    -   용량 증설 후 데이터 삭제 없이 해당 공간을 사용하기 위해서는 볼륨 관리 툴을 이용해야 함
+        -   `Linux: growpart`
+        -   `Window: diskmanagement`
 
 <br>
 
