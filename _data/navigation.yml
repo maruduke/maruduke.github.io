@@ -47,8 +47,3 @@ categories:
 
     - title: 'Book'
       url: /categories/Book/
-    
-    - title: 'CI\/CD'
-      children:
-        - title: 'jenkins'
-        url: /categories/jenkins/
