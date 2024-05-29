@@ -1,5 +1,5 @@
 ---
-title: '\[NCP\] 7. TroubleShooting'
+title: '\[NCP\] 9. TroubleShooting'
 excerpt: '대표적인 트러블 슈팅 사례'
 
 categories:
@@ -7,7 +7,7 @@ categories:
 tags:
     - [NCP, Cloud]
 
-permalink: /NaverCloud/5
+permalink: /NaverCloud/9
 
 toc: true
 toc_sticky: true

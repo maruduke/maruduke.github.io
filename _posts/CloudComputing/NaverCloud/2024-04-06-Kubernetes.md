@@ -7,7 +7,7 @@ categories:
 tags:
     - [NCP, Cloud]
 
-permalink: /NaverCloud/7
+permalink: /NaverCloud/4
 
 toc: true
 toc_sticky: true
