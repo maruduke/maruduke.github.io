@@ -60,18 +60,12 @@ last_modified_at: 2024-04-06
 
 ### 서버 타입
 
-<center>
-
-???
-
 | 타입               | 운영체제                | 하드웨어                |
 | ------------------ | ----------------------- | ----------------------- |
 | Micro              | CentOS, Ubuntu          | 1vCPU, 1G RAM, 50G HDD  |
 | Standard(4배수)    | CentOS, Ubuntu, Windows | 2~16vCPU, 4G ~ 32G RAM  |
 | High Memory(8배수) | CentOS, Ubuntu, Windows | 8~32vCPU, 64 ~ 256G RAM |
 | High CPU(2배수)    | CentOS, Ubuntu, Windows | 2~32vCPU, 4 ~ 64G RAM   |
-
-</center>
 
 <br>
 
