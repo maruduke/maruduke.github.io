@@ -49,13 +49,13 @@ last_modified_at: 2024-04-06
 
     -   GPU 카드 단위로 할당(GPU Core 단위로 할당하지 않음)
     -   `Pass Through 방식으로 제공(Grid X)`
-    -   최대 2장까지 제공
+    -   최대 V100 최대 4장, T4는 최대 2장까지 제공
 
 <br>
 
 -   Network
-    -   Physical 10Gbps
-    -   Logical 1Gbps
+    -   Physical: 10Gbps
+    -   Logical: 1Gbps
     -   실제로는 500Mbps ~ 1Gbps 제공(Rx + TX)
 
 ### 서버 타입

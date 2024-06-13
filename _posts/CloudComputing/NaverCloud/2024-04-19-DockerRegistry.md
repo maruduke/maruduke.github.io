@@ -174,7 +174,7 @@ $ docker login [Private EndPoint]
 도커 이미지를 레지스트리에 업로드할 수 있도록 태그를 붙여준다.
 
 ```bash
-$ docker image tag \[이미지 이름\] \[\[Private EndPoint\]/\[이미지_이름:태그\]\]
+$ docker image tag [로컬 이미지 이름] [[public EndPoint]/[이미지_이름:태그]]
 ```
 
 <p align = "center">
